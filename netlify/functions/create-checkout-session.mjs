@@ -26,11 +26,18 @@ function json(body, status = 200) {
 // Best-effort check that this exact watch hasn't already been paid for in a
 // previous Checkout Session. Uses Stripe as the datastore (sessions carry a
 // `watchId` in metadata) so we don't double-sell a one-of-one piece.
+//
+// Only counts *live-mode* payments. Every session created with a test-mode
+// secret key (as this whole project currently uses) comes back with
+// `livemode: false` — a test card purchase (e.g. while trying out the
+// checkout flow) must never permanently lock a real watch out of sale. Once
+// this switches to a live secret key, real customer payments will have
+// `livemode: true` and the one-of-one protection applies as intended.
 async function alreadySold(watchId) {
   try {
     const { data } = await stripe.checkout.sessions.list({ limit: 100 });
     return data.some(
-      (s) => s.metadata?.watchId === watchId && s.payment_status === 'paid'
+      (s) => s.metadata?.watchId === watchId && s.payment_status === 'paid' && s.livemode
     );
   } catch (error) {
     console.error('alreadySold check failed (allowing checkout):', error);
