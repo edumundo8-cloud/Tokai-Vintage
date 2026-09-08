@@ -1,48 +1,66 @@
-# Connecting Stripe (no backend required)
+# Connecting Stripe (Checkout Sessions)
 
-This site is a static front end — there's no server here to talk to Stripe's
-API directly, and no Stripe account is connected in this project. The
-practical way to take real card payments from a static site like this is
-**Stripe Payment Links**, which is entirely no-code and lives in your Stripe
-Dashboard.
+This site now has a small serverless backend (Netlify Functions), so
+checkout runs through real **Stripe Checkout Sessions** created on demand —
+not static Payment Links. Two Stripe products/prices already exist in test
+mode and are wired into `src/data/watches.ts`:
 
-## One-time setup, per watch
+- Seiko 5 Automatic 7S26 — `price_1UDCigFa8JIAy183lpyqM1oM` ($169)
+- Seiko SKX007 "Pepsi" Diver — `price_1UDCj0Fa8JIAy183EJmBOF2A` ($299)
 
-1. Log in to your Stripe Dashboard → **Payment links** → **New**.
-2. Add a product for the watch (name + the same price shown on the site,
-   e.g. $169 for the Seiko 5).
-3. Under **Shipping**, add a shipping rate: flat $15 USD, and restrict
-   shipping to the **United States** only (matches the site's shipping
-   policy).
-4. Turn on **Automatic tax** if you want Stripe to calculate sales tax at
-   checkout (the site's "total before tax" note assumes tax is added at
-   this step).
-5. Save, and copy the generated link (looks like
-   `https://buy.stripe.com/xxxxxxxx`).
+## How it works
 
-## Wiring it into the site
+1. The "Review purchase — pay with Stripe" button calls
+   `POST /.netlify/functions/create-checkout-session` with the watch's
+   `stripePriceId`.
+2. `netlify/functions/create-checkout-session.mjs` checks that price ID
+   against a small allow-list, then creates a Stripe Checkout Session
+   (one item, $15 flat-rate US shipping) and returns its URL.
+3. The browser redirects to Stripe's hosted checkout page.
+4. After payment, Stripe calls `netlify/functions/stripe-webhook.mjs` with a
+   `checkout.session.completed` event, which is where order fulfillment
+   logic (emails, marking a watch sold, etc.) can be added later.
 
-Open `src/data/watches.ts` and add the link to the matching watch:
+## One-time setup in the Stripe Dashboard
+
+1. **API keys** (Developers → API keys): copy the **Secret key**.
+2. **Webhook** (Developers → Webhooks → Add endpoint):
+   - Endpoint URL: `https://tokaivintage.com/.netlify/functions/stripe-webhook`
+   - Events to send: `checkout.session.completed`
+   - Copy the **Signing secret** shown after creating it.
+
+## Wiring the keys into Netlify
+
+In the Netlify dashboard: **Site settings → Environment variables**, add:
+
+- `STRIPE_SECRET_KEY` — the secret key from step 1 above.
+- `STRIPE_WEBHOOK_SECRET` — the signing secret from step 2 above.
+
+Redeploy the site after saving these so the functions pick them up.
+
+## Adding a new watch's price
+
+Create the Product + Price in the Stripe Dashboard (or ask Claude to do it
+via the Stripe API), then add the price ID to the watch in
+`src/data/watches.ts`:
 
 ```ts
 {
-  id: 'seiko-5-7s26-blue',
+  id: 'some-watch',
   ...
-  stripePaymentLink: 'https://buy.stripe.com/xxxxxxxx',
+  stripePriceId: 'price_xxxxxxxxxxxxxxxx',
 }
 ```
 
-That's it — the "Review purchase" button in the product modal will
-automatically switch from the email-inquiry fallback to "Review purchase —
-pay with Stripe" and open that Payment Link in a new tab. A watch with no
-`stripePaymentLink` configured keeps showing the inquiry/eBay fallback, so
-there's never a dead end for a buyer.
+A watch with no `stripePriceId` configured keeps showing the email-inquiry
+/ eBay fallback, so there's never a dead end for a buyer.
 
-## If you outgrow Payment Links later
+## Going live
 
-Payment Links cover single-item, fixed-price checkout well, which matches
-this catalog. If you later want a fully custom checkout (multiple items in
-one cart, dynamic pricing, etc.) you'd need a small server endpoint (e.g. a
-Vercel serverless function) that creates a Stripe Checkout Session with your
-**secret** key — that key must never live in this front-end code. Happy to
-help set that up when/if you need it.
+Everything above is currently set up against a Stripe **test-mode**
+account, which is safe to click through end-to-end (use Stripe's test card
+`4242 4242 4242 4242`, any future expiry, any CVC). When ready to accept
+real payments: switch the Stripe Dashboard to **live mode**, create live
+versions of the products/prices, get the live secret key + webhook signing
+secret, and swap `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` in Netlify to
+the live values.

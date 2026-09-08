@@ -25,14 +25,14 @@ export interface Watch {
   waterResistance: string;
   authenticityNote: string;
   /**
-   * Optional Stripe Payment Link for this exact watch (create one in the
-   * Stripe Dashboard: Payment Links -> New, set price = watch price, and
-   * enable "Add shipping rate" for the flat $15 USPS rate + USA-only
-   * shipping + automatic tax if desired). See STRIPE_SETUP.md.
+   * Optional Stripe Price ID for this exact watch (create the Product +
+   * Price in the Stripe Dashboard or API, matching the watch's price).
+   * When set, "Review purchase" creates a dynamic Stripe Checkout Session
+   * for this price via the create-checkout-session Netlify function.
    * Leave undefined until it's configured — the UI falls back to the
    * eBay / inquiry options automatically.
    */
-  stripePaymentLink?: string;
+  stripePriceId?: string;
   ebayListingUrl?: string;
 }
 
@@ -76,6 +76,7 @@ export const watches: Watch[] = [
     waterResistance: 'Not water resistant. Please keep this watch away from water and moisture.',
     authenticityNote:
       'Photographs show the actual, individual watch you will receive — not a stock or reference image.',
+    stripePriceId: 'price_1UDCigFa8JIAy183lpyqM1oM',
     ebayListingUrl: 'https://www.ebay.com/itm/336782443092',
   },
   {
@@ -123,6 +124,7 @@ export const watches: Watch[] = [
       'Current water resistance has not been verified. Please do not assume the original depth rating still applies — we recommend treating this watch as splash resistant only until pressure tested.',
     authenticityNote:
       'Photographs show the actual, individual watch you will receive — not a stock or reference image.',
+    stripePriceId: 'price_1UDCj0Fa8JIAy183EJmBOF2A',
     ebayListingUrl: 'https://www.ebay.com/itm/336782550352',
   },
   {

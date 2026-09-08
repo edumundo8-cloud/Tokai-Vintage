@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Watch } from '@/data/watches';
 import { SHIPPING } from '@/data/watches';
 import { formatUsd } from '@/lib/format';
@@ -6,6 +7,23 @@ import { buildInquiryMailto, goToStripeCheckout, hasStripeCheckout } from '@/lib
 export default function PurchaseReview({ watch }: { watch: Watch }) {
   const total = watch.price + SHIPPING.flatRateUsd;
   const stripeReady = hasStripeCheckout(watch);
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+
+  async function handleCheckout() {
+    setCheckoutError(null);
+    setIsRedirecting(true);
+    try {
+      await goToStripeCheckout(watch);
+      // On success the browser navigates away to Stripe, so there's
+      // nothing more to do here.
+    } catch (error) {
+      setIsRedirecting(false);
+      setCheckoutError(
+        error instanceof Error ? error.message : 'Unable to start checkout. Please try again.'
+      );
+    }
+  }
 
   return (
     <div className="border border-charcoal/12 bg-ivory-dim/40 p-5 md:p-6">
@@ -34,10 +52,11 @@ export default function PurchaseReview({ watch }: { watch: Watch }) {
         {stripeReady ? (
           <button
             type="button"
-            onClick={() => goToStripeCheckout(watch)}
-            className="inline-flex items-center justify-center gap-2 border border-forest bg-forest px-5 py-3 text-sm font-medium uppercase tracking-[0.1em] text-ivory transition-colors hover:bg-forest-light"
+            onClick={handleCheckout}
+            disabled={isRedirecting}
+            className="inline-flex items-center justify-center gap-2 border border-forest bg-forest px-5 py-3 text-sm font-medium uppercase tracking-[0.1em] text-ivory transition-colors hover:bg-forest-light disabled:cursor-wait disabled:opacity-70"
           >
-            Review purchase — pay with Stripe
+            {isRedirecting ? 'Redirecting to checkout…' : 'Review purchase — pay with Stripe'}
           </button>
         ) : (
           <a
@@ -59,6 +78,10 @@ export default function PurchaseReview({ watch }: { watch: Watch }) {
           </a>
         )}
       </div>
+
+      {checkoutError && (
+        <p className="mt-3 text-xs leading-relaxed text-red-700">{checkoutError}</p>
+      )}
 
       <p className="mt-4 text-xs leading-relaxed text-charcoal-soft/60">
         eBay listings may reflect different prices and shipping terms than this website.

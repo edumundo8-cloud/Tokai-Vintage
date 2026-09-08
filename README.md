@@ -27,7 +27,7 @@ src/
   data/watches.ts       ← every watch lives here (add new ones by appending)
   lib/
     format.ts            ← price formatting
-    stripe.ts             ← Stripe Payment Link + email-inquiry fallback logic
+    stripe.ts             ← Stripe Checkout Session + email-inquiry fallback logic
   components/
     Header.tsx            ← nav + mobile menu
     Hero.tsx
@@ -54,15 +54,36 @@ needed.
 
 ## Checkout / Stripe
 
-There's no payment backend in this project. The "Review purchase" button
-uses **Stripe Payment Links** (no-code, set up per watch in your Stripe
-Dashboard) when a watch has a `stripePaymentLink` configured, and falls back
-to an email inquiry / the eBay listing otherwise. See `STRIPE_SETUP.md` for
-the exact steps.
+Checkout runs through **Stripe Checkout Sessions**, created dynamically by a
+Netlify serverless function (not static Payment Links). The "Review
+purchase" button calls `POST /.netlify/functions/create-checkout-session`
+with the watch's `stripePriceId`, which creates a hosted Checkout Session
+and redirects the browser to it. A watch with no `stripePriceId` configured
+falls back to an email inquiry / the eBay listing instead.
+
+```
+netlify/functions/
+  create-checkout-session.mjs  ← creates the Checkout Session (POST { priceId })
+  stripe-webhook.mjs            ← handles checkout.session.completed
+```
+
+Required Netlify environment variables (Site settings → Environment
+variables), from your Stripe Dashboard:
+
+- `STRIPE_SECRET_KEY` — your Stripe secret key.
+- `STRIPE_WEBHOOK_SECRET` — the signing secret for a webhook endpoint
+  pointed at `https://tokaivintage.com/.netlify/functions/stripe-webhook`,
+  listening for `checkout.session.completed`.
+
+This project is currently wired up against a **Stripe test-mode** account.
+Switch to live keys in Netlify's environment variables (and re-register the
+webhook endpoint against the live account) when ready to accept real
+payments.
 
 ## Before going live
 
-- Add your real Stripe Payment Links (see `STRIPE_SETUP.md`).
+- Set `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` to your **live** Stripe
+  keys in Netlify, and register the live webhook endpoint (see above).
 - The inquiry-button fallback currently emails `edumundo8@gmail.com`
   (`src/lib/stripe.ts`) — update it if you'd rather use a dedicated
   business address.
