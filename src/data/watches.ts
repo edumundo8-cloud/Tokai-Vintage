@@ -15,7 +15,7 @@ export interface Watch {
   shortDescription: string;
   price: number; // USD, whole dollars
   currency: 'USD';
-  status: 'available' | 'coming-soon';
+  status: 'available' | 'coming-soon' | 'sold';
   brand: string;
   images: string[]; // ordered gallery, first image is primary/card image
   specs: WatchSpec[];
@@ -87,7 +87,7 @@ export const watches: Watch[] = [
       'The icon. Original aged dial, red-and-blue Pepsi bezel, and honest wear from a life well worn.',
     price: 299,
     currency: 'USD',
-    status: 'available',
+    status: 'sold',
     brand: 'Seiko',
     images: [
       '/images/seiko-pepsi/seiko-pepsi-1.jpg',

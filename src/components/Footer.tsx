@@ -19,6 +19,14 @@ export default function Footer() {
           >
             eBay
           </a>
+          <a
+            href="https://www.youtube.com/@TimeNPower"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-ivory"
+          >
+            YouTube
+          </a>
         </nav>
 
         <p className="text-xs text-ivory/45">

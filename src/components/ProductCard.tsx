@@ -25,32 +25,58 @@ export default function ProductCard({
     );
   }
 
+  const isSold = watch.status === 'sold';
+
   return (
     <button
       type="button"
       onClick={() => onOpen(watch)}
       className="group block w-full text-left"
-      aria-label={`Discover ${watch.name}, ${formatUsd(watch.price)}`}
+      aria-label={
+        isSold
+          ? `${watch.name} — sold, view details`
+          : `Discover ${watch.name}, ${formatUsd(watch.price)}`
+      }
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-ivory-dim">
         <img
           src={watch.images[0]}
           alt={`${watch.name} — main product photograph`}
-          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
+          className={
+            isSold
+              ? 'h-full w-full object-cover grayscale transition-transform duration-500 ease-out'
+              : 'h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]'
+          }
           loading="lazy"
         />
-        <div className="pointer-events-none absolute inset-0 flex items-end justify-center bg-gradient-to-t from-charcoal/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <span className="mb-5 border border-ivory/70 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-ivory">
-            Discover this watch
-          </span>
-        </div>
+        {isSold ? (
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-charcoal/45">
+            <span className="border border-ivory/80 px-5 py-2 text-xs font-medium uppercase tracking-[0.22em] text-ivory">
+              Gone
+            </span>
+          </div>
+        ) : (
+          <div className="pointer-events-none absolute inset-0 flex items-end justify-center bg-gradient-to-t from-charcoal/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <span className="mb-5 border border-ivory/70 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-ivory">
+              Discover this watch
+            </span>
+          </div>
+        )}
       </div>
       <div className="mt-4 flex items-baseline justify-between gap-3">
-        <h3 className="font-serif text-lg leading-snug text-charcoal group-hover:text-forest">
+        <h3
+          className={
+            isSold
+              ? 'font-serif text-lg leading-snug text-charcoal/50'
+              : 'font-serif text-lg leading-snug text-charcoal group-hover:text-forest'
+          }
+        >
           {watch.name}
         </h3>
       </div>
-      <p className="mt-1 text-sm text-charcoal/60">{formatUsd(watch.price)}</p>
+      <p className={isSold ? 'mt-1 text-sm text-charcoal/40' : 'mt-1 text-sm text-charcoal/60'}>
+        {isSold ? 'Sold' : formatUsd(watch.price)}
+      </p>
     </button>
   );
 }

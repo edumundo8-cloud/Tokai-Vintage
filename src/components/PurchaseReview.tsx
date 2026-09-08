@@ -7,6 +7,7 @@ import { buildInquiryMailto, goToStripeCheckout, hasStripeCheckout } from '@/lib
 export default function PurchaseReview({ watch }: { watch: Watch }) {
   const total = watch.price + SHIPPING.flatRateUsd;
   const stripeReady = hasStripeCheckout(watch);
+  const isSold = watch.status === 'sold';
   const [isRedirecting, setIsRedirecting] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
@@ -49,7 +50,11 @@ export default function PurchaseReview({ watch }: { watch: Watch }) {
       </p>
 
       <div className="mt-5 flex flex-col gap-2.5">
-        {stripeReady ? (
+        {isSold ? (
+          <div className="inline-flex items-center justify-center gap-2 border border-charcoal/20 bg-charcoal/5 px-5 py-3 text-sm font-medium uppercase tracking-[0.1em] text-charcoal/50">
+            This piece has been sold
+          </div>
+        ) : stripeReady ? (
           <button
             type="button"
             onClick={handleCheckout}
@@ -84,8 +89,14 @@ export default function PurchaseReview({ watch }: { watch: Watch }) {
       )}
 
       <p className="mt-4 text-xs leading-relaxed text-charcoal-soft/60">
-        eBay listings may reflect different prices and shipping terms than this website.
-        {!stripeReady && ' Card checkout is being finalized — reach out and we\'ll walk you through availability and next steps.'}
+        {isSold
+          ? 'This exact watch has found a new home. Check back — new pieces are added regularly.'
+          : (
+            <>
+              eBay listings may reflect different prices and shipping terms than this website.
+              {!stripeReady && ' Card checkout is being finalized — reach out and we\'ll walk you through availability and next steps.'}
+            </>
+          )}
       </p>
     </div>
   );
