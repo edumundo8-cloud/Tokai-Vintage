@@ -1,5 +1,8 @@
 import type { Watch } from '@/data/watches';
 import { formatUsd } from '@/lib/format';
+import ResponsiveImage from './ResponsiveImage';
+
+const CARD_SIZES = '(min-width: 1024px) 250px, (min-width: 640px) 45vw, 92vw';
 
 export default function ProductCard({
   watch,
@@ -39,15 +42,15 @@ export default function ProductCard({
       }
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-ivory-dim">
-        <img
+        <ResponsiveImage
           src={watch.images[0]}
           alt={`${watch.name} — main product photograph`}
+          sizes={CARD_SIZES}
           className={
             isSold
               ? 'h-full w-full object-cover grayscale transition-transform duration-500 ease-out'
               : 'h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]'
           }
-          loading="lazy"
         />
         {isSold ? (
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-charcoal/45">

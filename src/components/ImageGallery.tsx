@@ -1,4 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ResponsiveImage from './ResponsiveImage';
+import { webpThumb } from '@/lib/img';
+import { useFocusTrap } from '@/lib/useFocusTrap';
+
+const MAIN_SIZES = '(min-width: 768px) 430px, 92vw';
 
 export default function ImageGallery({
   images,
@@ -9,6 +14,7 @@ export default function ImageGallery({
 }) {
   const [index, setIndex] = useState(0);
   const [fullSize, setFullSize] = useState(false);
+  const lightboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => setIndex(0), [images]);
 
@@ -27,14 +33,17 @@ export default function ImageGallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fullSize, images.length]);
 
+  useFocusTrap(lightboxRef, fullSize);
+
   if (images.length === 0) return null;
 
   return (
     <div>
       <div className="relative aspect-square w-full overflow-hidden bg-ivory-dim">
-        <img
+        <ResponsiveImage
           src={images[index]}
           alt={`${altPrefix} — photo ${index + 1} of ${images.length}`}
+          sizes={MAIN_SIZES}
           className="h-full w-full object-cover"
         />
 
@@ -82,7 +91,13 @@ export default function ImageGallery({
                 i === index ? 'border-forest' : 'border-charcoal/15 hover:border-charcoal/40'
               }`}
             >
-              <img src={src} alt="" className="h-full w-full object-cover" />
+              <img
+                src={webpThumb(src)}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
             </button>
           ))}
         </div>
@@ -90,6 +105,7 @@ export default function ImageGallery({
 
       {fullSize && (
         <div
+          ref={lightboxRef}
           className="fixed inset-0 z-50 flex items-center justify-center bg-charcoal/95 p-4"
           role="dialog"
           aria-modal="true"
@@ -104,9 +120,10 @@ export default function ImageGallery({
           >
             ×
           </button>
-          <img
+          <ResponsiveImage
             src={images[index]}
             alt={`${altPrefix} — photo ${index + 1} of ${images.length}, full size`}
+            sizes="100vw"
             className="max-h-full max-w-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />

@@ -26,10 +26,13 @@ export default async function handleStripeWebhook(request) {
     const session = event.data.object;
     // The order is paid at this point (or will be shortly, for delayed
     // payment methods — check session.payment_status if that matters here).
-    // This is the place to record the sale, send a confirmation email,
-    // mark the watch as sold, etc. Logged for now so it shows up in the
-    // Netlify function logs.
-    console.log('Checkout completed:', {
+    // `watchId` comes from the metadata set in create-checkout-session, so
+    // this line tells you exactly which entry in src/data/watches.ts to flip
+    // to `status: 'sold'`. (create-checkout-session also refuses a second
+    // paid session for the same watchId, so the storefront is safe until
+    // that redeploy lands.) This is also where a confirmation email would go.
+    console.log('Checkout completed — mark this watch sold:', {
+      watchId: session.metadata?.watchId ?? session.client_reference_id ?? 'unknown',
       sessionId: session.id,
       customerEmail: session.customer_details?.email,
       amountTotal: session.amount_total,

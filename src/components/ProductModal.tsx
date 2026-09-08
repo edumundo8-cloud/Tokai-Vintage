@@ -1,8 +1,40 @@
 import { useEffect, useRef } from 'react';
 import type { Watch } from '@/data/watches';
 import { formatUsd } from '@/lib/format';
+import { SITE_URL, SITE_NAME } from '@/lib/site';
+import { useFocusTrap } from '@/lib/useFocusTrap';
 import ImageGallery from './ImageGallery';
 import PurchaseReview from './PurchaseReview';
+
+const AVAILABILITY: Record<Watch['status'], string> = {
+  available: 'https://schema.org/InStock',
+  sold: 'https://schema.org/SoldOut',
+  'coming-soon': 'https://schema.org/PreOrder',
+};
+
+function watchJsonLd(watch: Watch) {
+  const url = `${SITE_URL}/w/${watch.slug}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: watch.name,
+    image: watch.images.map((src) => `${SITE_URL}${src}`),
+    description: watch.shortDescription,
+    brand: { '@type': 'Brand', name: watch.brand || SITE_NAME },
+    ...(watch.specs.find((s) => s.label === 'Serial')
+      ? { sku: watch.specs.find((s) => s.label === 'Serial')!.value }
+      : {}),
+    offers: {
+      '@type': 'Offer',
+      url,
+      priceCurrency: watch.currency,
+      price: watch.price,
+      itemCondition: 'https://schema.org/UsedCondition',
+      availability: AVAILABILITY[watch.status],
+      seller: { '@type': 'Organization', name: SITE_NAME },
+    },
+  };
+}
 
 export default function ProductModal({
   watch,
@@ -12,6 +44,9 @@ export default function ProductModal({
   onClose: () => void;
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(dialogRef, true);
 
   useEffect(() => {
     closeRef.current?.focus();
@@ -29,12 +64,36 @@ export default function ProductModal({
     };
   }, [onClose]);
 
+  // Reflect the open watch in the document metadata so a shared /w/<slug>
+  // link and search engines see this specific piece.
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = `${watch.name} — ${SITE_NAME}`;
+
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    const previousCanonical = canonical?.getAttribute('href') ?? null;
+    canonical?.setAttribute('href', `${SITE_URL}/w/${watch.slug}`);
+
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.dataset.watch = watch.slug;
+    ld.textContent = JSON.stringify(watchJsonLd(watch));
+    document.head.appendChild(ld);
+
+    return () => {
+      document.title = previousTitle;
+      if (previousCanonical) canonical?.setAttribute('href', previousCanonical);
+      ld.remove();
+    };
+  }, [watch]);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-charcoal/60 px-4 py-8 backdrop-blur-sm md:py-14"
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="product-modal-title"

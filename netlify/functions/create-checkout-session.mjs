@@ -1,49 +1,75 @@
 import Stripe from 'stripe';
+import { watches } from '../../src/data/watches.ts';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const SITE_URL = 'https://tokaivintage.com';
+// Canonical site origin. Netlify sets `URL` to the primary domain in
+// production; `DEPLOY_PRIME_URL` covers branch/deploy-preview contexts.
+const SITE_URL =
+  process.env.URL || process.env.DEPLOY_PRIME_URL || 'https://tokaivintage.com';
 
-// Whitelist of Stripe Price IDs this store is allowed to sell. Keeping this
-// list here (rather than trusting whatever priceId the client sends) stops
-// someone from checking out an arbitrary/attacker-chosen Stripe price.
-const ALLOWED_PRICE_IDS = new Set([
-  'price_1UDCigFa8JIAy183lpyqM1oM', // Seiko 5 Automatic 7S26
-  'price_1UDCj0Fa8JIAy183EJmBOF2A', // Seiko SKX007 "Pepsi" Diver
-]);
+// Single source of truth: the sellable catalogue is derived straight from
+// src/data/watches.ts, so a watch flipped to `status: 'sold'` (or without a
+// Stripe price) can no longer be checked out. No second list to keep in sync.
+const PRICE_TO_WATCH = new Map(
+  watches
+    .filter((w) => w.stripePriceId && w.status !== 'sold')
+    .map((w) => [w.stripePriceId, w.id])
+);
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
+function json(body, status = 200) {
+  return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
+}
+
+// Best-effort check that this exact watch hasn't already been paid for in a
+// previous Checkout Session. Uses Stripe as the datastore (sessions carry a
+// `watchId` in metadata) so we don't double-sell a one-of-one piece.
+async function alreadySold(watchId) {
+  try {
+    const { data } = await stripe.checkout.sessions.list({ limit: 100 });
+    return data.some(
+      (s) => s.metadata?.watchId === watchId && s.payment_status === 'paid'
+    );
+  } catch (error) {
+    console.error('alreadySold check failed (allowing checkout):', error);
+    return false;
+  }
+}
+
 export default async function createCheckoutSession(request) {
   if (request.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-      status: 405,
-      headers: JSON_HEADERS,
-    });
+    return json({ error: 'Method not allowed' }, 405);
   }
 
   let priceId;
   try {
-    const body = await request.json();
-    priceId = body.priceId;
+    ({ priceId } = await request.json());
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON body' }), {
-      status: 400,
-      headers: JSON_HEADERS,
-    });
+    return json({ error: 'Invalid JSON body' }, 400);
   }
 
-  if (typeof priceId !== 'string' || !ALLOWED_PRICE_IDS.has(priceId)) {
-    return new Response(JSON.stringify({ error: 'Unknown or missing priceId' }), {
-      status: 400,
-      headers: JSON_HEADERS,
-    });
+  if (typeof priceId !== 'string' || !PRICE_TO_WATCH.has(priceId)) {
+    return json({ error: 'Unknown or missing priceId' }, 400);
+  }
+
+  const watchId = PRICE_TO_WATCH.get(priceId);
+
+  if (await alreadySold(watchId)) {
+    return json(
+      { error: 'Sorry — this watch has just been sold. It is one of a kind.' },
+      409
+    );
   }
 
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: [{ price: priceId, quantity: 1 }],
+      client_reference_id: watchId,
+      metadata: { watchId },
+      expires_at: Math.floor(Date.now() / 1000) + 30 * 60,
       shipping_address_collection: { allowed_countries: ['US'] },
       shipping_options: [
         {
@@ -58,16 +84,10 @@ export default async function createCheckoutSession(request) {
       cancel_url: `${SITE_URL}/?checkout=cancelled`,
     });
 
-    return new Response(JSON.stringify({ url: session.url }), {
-      status: 200,
-      headers: JSON_HEADERS,
-    });
+    return json({ url: session.url });
   } catch (error) {
     console.error('create-checkout-session error:', error);
-    return new Response(JSON.stringify({ error: 'Unable to start checkout' }), {
-      status: 500,
-      headers: JSON_HEADERS,
-    });
+    return json({ error: 'Unable to start checkout' }, 500);
   }
 }
 

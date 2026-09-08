@@ -16,19 +16,24 @@ export async function goToStripeCheckout(watch: Watch): Promise<void> {
   const response = await fetch('/.netlify/functions/create-checkout-session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ priceId: watch.stripePriceId }),
+    body: JSON.stringify({ priceId: watch.stripePriceId, watchId: watch.id }),
   });
 
+  const data = await response.json().catch(() => null);
+
   if (!response.ok) {
+    // The function returns a human-readable `error` (e.g. the watch has
+    // already sold); fall back to a generic message otherwise.
+    throw new Error(
+      data?.error || 'Unable to start checkout. Please try again in a moment.'
+    );
+  }
+
+  if (!data?.url) {
     throw new Error('Unable to start checkout. Please try again in a moment.');
   }
 
-  const { url } = await response.json();
-  if (!url) {
-    throw new Error('Unable to start checkout. Please try again in a moment.');
-  }
-
-  window.location.href = url;
+  window.location.href = data.url;
 }
 
 export function buildInquiryMailto(watch: Watch): string {
