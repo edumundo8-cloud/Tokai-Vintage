@@ -45,7 +45,7 @@ export const watches: Watch[] = [
       'A quietly striking Seiko 5 with a rare blue striped dial and gold accents, recently serviced.',
     price: 169,
     currency: 'USD',
-    status: 'available',
+    status: 'sold',
     brand: 'Seiko',
     images: [
       '/images/seiko-5/seiko-5-1.jpg',
