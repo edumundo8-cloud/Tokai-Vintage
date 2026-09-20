@@ -40,9 +40,26 @@ Redeploy the site after saving these so the functions pick them up.
 
 ## Adding a new watch's price
 
-Create the Product + Price in the Stripe Dashboard (or ask Claude to do it
-via the Stripe API), then add the price ID to the watch in
-`src/data/watches.ts`:
+Run the helper script with your Stripe secret key in the environment. It
+reads the watch's name, description, and price straight out of
+`src/data/watches.ts`, creates the matching Product + Price, and writes the
+new `stripePriceId` back into the same file:
+
+```bash
+STRIPE_SECRET_KEY=sk_... node scripts/create-stripe-price.mjs seiko-5-7s26-president
+```
+
+Run it with no arguments to list the watch IDs and which ones already have a
+price. The key is only read from the environment — it is never printed or
+written anywhere. Whether you get a test price or a real one depends purely
+on which key you pass (`sk_test_...` vs `sk_live_...`), and the script prints
+which mode it used.
+
+The script refuses to run for a watch that already has a `stripePriceId`, or
+one marked `sold`, so a second run can't orphan an existing price.
+
+To do it by hand instead, create the Product + Price in the Stripe Dashboard
+and add the ID to the watch yourself:
 
 ```ts
 {
@@ -52,8 +69,21 @@ via the Stripe API), then add the price ID to the watch in
 }
 ```
 
+Either way there is no second list to update: the checkout function derives
+its allow-list from `watches.ts` directly, so setting `stripePriceId` is all
+that's needed to make a watch purchasable.
+
 A watch with no `stripePriceId` configured keeps showing the email-inquiry
 / eBay fallback, so there's never a dead end for a buyer.
+
+### Keeping the key out of git
+
+`.env` and `.env.*` are gitignored. Putting the key in `.env` and loading it
+with `node --env-file=.env` works too:
+
+```bash
+node --env-file=.env scripts/create-stripe-price.mjs seiko-5-7s26-president
+```
 
 ## Going live
 

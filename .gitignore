@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Secrets — Stripe keys and anything else read from the environment
+.env
+.env.*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

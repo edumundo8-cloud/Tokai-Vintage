@@ -38,6 +38,59 @@ export interface Watch {
 
 export const watches: Watch[] = [
   {
+    id: 'seiko-5-7s26-president',
+    slug: 'seiko-5-automatic-7s26-two-tone-champagne-dial',
+    name: 'Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial',
+    shortDescription:
+      'The one collectors call the "President" — fluted gold bezel, champagne sunburst dial, and a jubilee bracelet. All original, spare link included.',
+    price: 439,
+    currency: 'USD',
+    status: 'available',
+    brand: 'Seiko',
+    images: [
+      '/images/seiko-president/seiko-president-1.jpg',
+      '/images/seiko-president/seiko-president-2.jpg',
+      '/images/seiko-president/seiko-president-3.jpg',
+      '/images/seiko-president/seiko-president-4.jpg',
+      '/images/seiko-president/seiko-president-5.jpg',
+      '/images/seiko-president/seiko-president-6.jpg',
+      '/images/seiko-president/seiko-president-7.jpg',
+      '/images/seiko-president/seiko-president-8.jpg',
+      '/images/seiko-president/seiko-president-9.jpg',
+    ],
+    specs: [
+      { label: 'Model', value: 'Seiko 5 Automatic' },
+      { label: 'Nickname', value: 'The "Seiko President"' },
+      { label: 'Movement', value: 'Seiko 7S26 automatic, 21 jewels' },
+      { label: 'Caseback', value: 'Exhibition display back — movement visible' },
+      { label: 'Case size', value: 'Approx. 36mm (excl. crown)' },
+      { label: 'Case', value: 'Two-tone stainless steel' },
+      { label: 'Bezel', value: 'Gold-tone fluted bezel' },
+      { label: 'Dial', value: 'Champagne sunburst with applied gold baton indices' },
+      { label: 'Complication', value: 'Day / date, Spanish day wheel' },
+      { label: 'Crown', value: 'Gold-tone, original' },
+      { label: 'Bracelet', value: 'Original two-tone jubilee-style, signed SEIKO clasp' },
+      { label: 'Included', value: 'One spare bracelet link' },
+    ],
+    condition: [
+      'Everything on this watch is original — case, dial, hands, crown, crystal, and bracelet are all as Seiko made them. Nothing has been swapped, redialled, or replaced.',
+      'One spare bracelet link is included with the watch, so the fit can be let out as well as taken in.',
+      'The champagne sunburst dial presents cleanly, with the applied gold indices and printing fully intact.',
+      'The exhibition caseback lets you watch the 7S26 run — the rotor, balance, and bridges are all on display.',
+      'Case, bezel, and bracelet show hairline scratches, light scuffs, and polishing marks consistent with age and honest wear.',
+      'Running at the time of listing.',
+    ],
+    service: 'Running at the time of listing.',
+    parts: [
+      'All original — no replacement or aftermarket parts',
+      'One spare bracelet link included',
+    ],
+    waterResistance:
+      'Water resistance has not been verified. Please do not assume any original rating still applies after decades of age — treat this watch as splash resistant only until it has been pressure tested.',
+    authenticityNote:
+      'Photographs show the actual, individual watch you will receive — not a stock or reference image.',
+  },
+  {
     id: 'seiko-5-7s26-blue',
     slug: 'seiko-5-automatic-7s26-blue-striped-dial',
     name: 'Seiko 5 Automatic 7S26 — Rare Blue Striped Dial',

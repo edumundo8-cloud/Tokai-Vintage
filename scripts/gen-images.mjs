@@ -10,6 +10,7 @@ const PRODUCT_DIRS = [
   'public/images/seiko-5',
   'public/images/seiko-pepsi',
   'public/images/king-seiko-vanac',
+  'public/images/seiko-president',
 ];
 const PRODUCT_WIDTHS = [480, 960, 1440];
 
