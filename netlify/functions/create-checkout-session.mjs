@@ -80,6 +80,18 @@ export default async function createCheckoutSession(request) {
 
   try {
     const session = await stripe.checkout.sessions.create({
+      // --- Configured in Checkout Studio ---
+      ui_mode: 'hosted_page',
+      billing_address_collection: 'auto',
+      phone_number_collection: { enabled: false },
+      automatic_tax: { enabled: false },
+      allow_promotion_codes: false,
+      submit_type: 'auto',
+      integration_identifier: 'hosted_web_0001',
+      origin_context: 'web',
+      // payment_method_collection is intentionally omitted: it applies to
+      // `subscription` mode only, and this is a one-time payment.
+      // --- End Checkout Studio ---
       mode: 'payment',
       line_items: [{ price: priceId, quantity: 1 }],
       client_reference_id: watchId,

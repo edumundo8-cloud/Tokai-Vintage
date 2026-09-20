@@ -89,6 +89,7 @@ export const watches: Watch[] = [
       'Water resistance has not been verified. Please do not assume any original rating still applies after decades of age — treat this watch as splash resistant only until it has been pressure tested.',
     authenticityNote:
       'Photographs show the actual, individual watch you will receive — not a stock or reference image.',
+    stripePriceId: 'price_1UHqK8FFxzuOxKQ8Ywu9vR2D',
   },
   {
     id: 'seiko-5-7s26-blue',
