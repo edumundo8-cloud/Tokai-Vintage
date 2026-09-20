@@ -12,18 +12,23 @@ infrastructure were added.
 
 ## Values to Replace
 
-**Files containing placeholders:**
+**None outstanding. The integration is live.**
 
-- [src/data/watches.ts](src/data/watches.ts)
+Verified end to end on 2026-09-20: a POST to the deployed
+`create-checkout-session` returns a real `checkout.stripe.com` URL, and that
+page renders $454.00 ($439 watch + $15 shipping) with shipping-address
+collection, no test banner, and the Tokai Vintage branding applied.
 
-The Checkout Session itself contains no placeholder values — `mode`,
-`success_url`, `cancel_url`, and `line_items` all already carry real,
-non-placeholder values and were preserved as-is. The only outstanding
-placeholder is one missing Stripe Price ID in the catalogue.
+`mode`, `success_url`, `cancel_url`, and `line_items` all carried real,
+non-placeholder values from the start and were preserved as-is. The one
+outstanding item — the missing Stripe Price ID — has since been created:
 
-| Field | Current Value | What to Set |
-|-------|--------------|-------------|
-| `watches[].stripePriceId` for `seiko-5-7s26-president` | *(absent)* | The live Stripe Price ID for the $439 Seiko 5 "President". Create it with `node --env-file=.env scripts/create-stripe-price.mjs seiko-5-7s26-president`, which writes it into `watches.ts` automatically. Until this is set, that listing shows the email-inquiry fallback instead of a pay button. |
+| Field | Value |
+|-------|-------|
+| `watches[].stripePriceId` for `seiko-5-7s26-president` | `price_1UHqK8FFxzuOxKQ8Ywu9vR2D` — live, active, one_time, $439.00 USD, product `prod_VIRCGbORbGTw5v`, `watchId` in metadata |
+
+To add a price for a future watch, run
+`node --env-file=.env scripts/create-stripe-price.mjs <watch-id>`.
 
 ### Not placeholders — do not change
 
@@ -183,22 +188,37 @@ hard checkout error instead of the harmless inquiry fallback.
 
 ---
 
+## Done
+
+- Live secret key rolled and set in Netlify (scoped to Functions, all contexts).
+- Live price created for the Seiko 5 "President" and deployed.
+- Live webhook endpoint created — verified on the account as
+  `https://tokaivintage.com/.netlify/functions/stripe-webhook`, status
+  `enabled`, `livemode: true`, subscribed to `checkout.session.completed` only.
+- Checkout verified end to end against production.
+
+If checkout ever returns "Unable to start checkout" (HTTP 500) again, the cause
+is almost always the environment, not the code. Check in this order: is the
+Netlify value a live key, is it *malformed* (a pasted `STRIPE_SECRET_KEY=`
+prefix or trailing whitespace will pass a last-4 comparison but fail every API
+call), and has a deploy actually run since the variable changed? Editing a
+variable does not rebuild the site.
+
 ## Next Steps
 
-1. **Roll the exposed live secret key** if not already done, and confirm no
-   unfamiliar activity in the Stripe Dashboard.
-2. **Create the live price** for the Seiko 5 "President" (see Values to Replace).
-3. **Create the live webhook endpoint** at
-   `https://tokaivintage.com/.netlify/functions/stripe-webhook` for
-   `checkout.session.completed`, and copy its signing secret.
-4. **Set the three Netlify environment variables**, then push.
-5. **Decide on tax.** `automatic_tax` is off. Whether you must collect depends
+1. **Confirm the webhook secret works.** In Workbench → Webhooks → the
+   endpoint → send a test event. A `200` means it verified; a `400` means
+   `STRIPE_WEBHOOK_SECRET` in Netlify does not match this endpoint. This fails
+   silently in production — the customer is charged either way and only the
+   notification is lost — so it is worth confirming deliberately.
+2. **Decide on tax.** `automatic_tax` is off. Whether you must collect depends
    on your jurisdiction and volume — an accountant question, not a code one.
-6. **Consider a real domain for order emails.** The sender is currently
-   `orders@resend.dev`, Stripe's shared sandbox domain, which has poor
+3. **Consider a real domain for order emails.** The sender is currently
+   `orders@resend.dev`, Resend's shared sandbox domain, which has poor
    deliverability and is usually restricted to your own address.
-7. **Harden the double-sale guard** if volume grows. See the limitation comment
-   on `alreadySold()`.
+4. **Mark a watch sold promptly after each sale** — set `status: 'sold'` in
+   `watches.ts` and redeploy. `alreadySold()` covers only the gap until then,
+   and only across the 100 most recent sessions.
 
 ---
 
