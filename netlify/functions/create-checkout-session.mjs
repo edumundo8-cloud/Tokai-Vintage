@@ -27,6 +27,14 @@ function json(body, status = 200) {
 // previous Checkout Session. Uses Stripe as the datastore (sessions carry a
 // `watchId` in metadata) so we don't double-sell a one-of-one piece.
 //
+// LIMITATION: this only scans the 100 most recent sessions, which is the
+// maximum Stripe returns in one page, and every abandoned or expired session
+// counts toward that window. Once 100 newer sessions exist, an older paid one
+// falls out of view and this check silently starts returning false. The
+// durable fix is to mark the watch `status: 'sold'` in src/data/watches.ts and
+// redeploy promptly after each sale — this function is only the stopgap that
+// covers the gap between payment and that redeploy.
+//
 // Only counts *live-mode* payments. Every session created with a test-mode
 // secret key (as this whole project currently uses) comes back with
 // `livemode: false` — a test card purchase (e.g. while trying out the

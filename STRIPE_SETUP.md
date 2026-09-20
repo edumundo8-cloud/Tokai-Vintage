@@ -87,10 +87,81 @@ node --env-file=.env scripts/create-stripe-price.mjs seiko-5-7s26-president
 
 ## Going live
 
-Everything above is currently set up against a Stripe **test-mode**
-account, which is safe to click through end-to-end (use Stripe's test card
-`4242 4242 4242 4242`, any future expiry, any CVC). When ready to accept
-real payments: switch the Stripe Dashboard to **live mode**, create live
-versions of the products/prices, get the live secret key + webhook signing
-secret, and swap `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` in Netlify to
-the live values.
+Everything above was originally set up against Stripe **test mode**, which
+is safe to click through end-to-end (test card `4242 4242 4242 4242`, any
+future expiry, any CVC). Switching to real payments is the sequence below.
+
+**Do the steps in this order.** The ordering matters: the checkout function
+reads its allow-list from `watches.ts` but its API key from the Netlify
+environment. If a live price ID reaches production before the live secret
+key does, the function holds a test key and Stripe rejects the live price —
+buyers get "Unable to start checkout" until the key catches up. Setting the
+environment first means the worst case is the harmless inquiry fallback.
+
+### 1. Activate the Stripe account
+
+Stripe will not process live charges until the account is fully activated:
+business details, bank account for payouts, identity verification. Do this
+first — the rest is wasted effort if activation is still pending.
+
+### 2. Create the live Product + Price
+
+Switch the Stripe Dashboard to **live mode** and copy the live secret key
+(`sk_live_...`) from Developers → API keys. Then, for each watch that needs
+a price:
+
+```bash
+STRIPE_SECRET_KEY=sk_live_... node scripts/create-stripe-price.mjs <watch-id>
+```
+
+The script prints `LIVE` when it is creating a real price, and writes the
+new `stripePriceId` into `src/data/watches.ts`. **Do not commit yet.**
+
+Test-mode price IDs already in `watches.ts` belong to watches marked `sold`,
+which the allow-list filters out, so they are inert. If one of those watches
+is ever put back on sale, delete its test price ID and re-run the script
+against the live key — otherwise checkout for it will fail.
+
+### 3. Create the live webhook endpoint
+
+Still in live mode: Developers → Webhooks → Add endpoint.
+
+- URL: `https://tokaivintage.com/.netlify/functions/stripe-webhook`
+- Event: `checkout.session.completed`
+
+Copy the signing secret (`whsec_...`) shown after creating it. A test-mode
+signing secret will not verify live events, so this must be the live one.
+
+### 4. Swap the Netlify environment variables
+
+Site settings → Environment variables:
+
+- `STRIPE_SECRET_KEY` → the `sk_live_...` key
+- `STRIPE_WEBHOOK_SECRET` → the live `whsec_...` signing secret
+- `RESEND_API_KEY` → required for order-notification emails; without it the
+  webhook logs a warning and sends nothing, so a paid order would only be
+  visible in the Stripe Dashboard.
+
+Environment changes do not apply to an already-built deploy — the push in
+step 5 rebuilds and picks them up.
+
+### 5. Commit and push
+
+```bash
+git add src/data/watches.ts && git commit -m "Add live Stripe price for <watch>" && git push
+```
+
+Netlify rebuilds with both the live price ID and the live keys in place.
+
+### 6. Verify
+
+Open the listing and click through to Stripe. The hosted checkout page
+should show the real amount and say **"Powered by Stripe"** without a test
+banner. Completing a real purchase is the only true end-to-end test; the
+cheapest way to do it is to buy from yourself and refund it in the Dashboard
+(the Stripe fee on a refunded charge is not returned, so it costs a little).
+
+After a real sale, flip the watch to `status: 'sold'` in `watches.ts` and
+redeploy. Until that lands, `alreadySold()` in `create-checkout-session.mjs`
+is what stops the same one-of-one piece selling twice — see the limitation
+noted in that function before relying on it long-term.
