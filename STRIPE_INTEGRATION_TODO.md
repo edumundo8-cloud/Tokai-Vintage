@@ -160,8 +160,10 @@ scripts/create-stripe-price.mjs Creates a Product + Price, writes the ID back
 6. The buyer returns to `/?checkout=success&session_id=...`, and
    `get-checkout-session.mjs` returns a safe summary for the confirmation page.
 7. **Manual step:** flip the watch to `status: 'sold'` in `watches.ts` and
-   redeploy. Until that lands, step 3 is the only thing preventing a second sale
-   — and it only scans the 100 most recent sessions, so do not delay it.
+   redeploy. Until that lands, step 3 is the only thing preventing a second
+   sale. It cross-checks the 100 most recent Checkout Sessions *and* searches
+   PaymentIntents by `watchId`, which between them cover both the last minute
+   and the long tail — but marking the watch sold is still the real fix.
 
 ---
 
@@ -217,8 +219,8 @@ variable does not rebuild the site.
    `orders@resend.dev`, Resend's shared sandbox domain, which has poor
    deliverability and is usually restricted to your own address.
 4. **Mark a watch sold promptly after each sale** — set `status: 'sold'` in
-   `watches.ts` and redeploy. `alreadySold()` covers only the gap until then,
-   and only across the 100 most recent sessions.
+   `watches.ts` and redeploy. `alreadySold()` covers the gap until then, but it
+   is still the only check with no failure mode at all.
 
 ---
 

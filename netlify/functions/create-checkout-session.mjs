@@ -23,34 +23,58 @@ function json(body, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
 }
 
-// Best-effort check that this exact watch hasn't already been paid for in a
-// previous Checkout Session. Uses Stripe as the datastore (sessions carry a
-// `watchId` in metadata) so we don't double-sell a one-of-one piece.
+// Best-effort check that this exact watch hasn't already been paid for, so we
+// don't double-sell a one-of-one piece. Uses Stripe itself as the datastore —
+// both Checkout Sessions and their PaymentIntents carry `watchId` in metadata.
 //
-// LIMITATION: this only scans the 100 most recent sessions, which is the
-// maximum Stripe returns in one page, and every abandoned or expired session
-// counts toward that window. Once 100 newer sessions exist, an older paid one
-// falls out of view and this check silently starts returning false. The
-// durable fix is to mark the watch `status: 'sold'` in src/data/watches.ts and
-// redeploy promptly after each sale — this function is only the stopgap that
-// covers the gap between payment and that redeploy.
+// Two lookups, because each covers the other's blind spot:
 //
-// Only counts *live-mode* payments. Every session created with a test-mode
-// secret key (as this whole project currently uses) comes back with
-// `livemode: false` — a test card purchase (e.g. while trying out the
-// checkout flow) must never permanently lock a real watch out of sale. Once
-// this switches to a live secret key, real customer payments will have
-// `livemode: true` and the one-of-one protection applies as intended.
+//   1. The 100 most recent Checkout Sessions. Exact and current, with no
+//      indexing delay, but 100 is Stripe's maximum page size and abandoned
+//      sessions count toward it — so an older paid session eventually falls
+//      out of this window.
+//   2. A PaymentIntent search on `metadata['watchId']`. Unbounded by age, but
+//      Stripe's search index lags object creation by up to a minute, so it can
+//      miss a payment that just completed.
+//
+// Together they cover both the recent minute and the long tail. Either one
+// matching is enough to block the sale.
+//
+// Only *live-mode* payments count. Sessions created with a test-mode key come
+// back with `livemode: false`, and a test-card purchase must never permanently
+// lock a real watch out of sale. A live key only ever sees live objects, so
+// this is belt-and-braces rather than load-bearing.
+//
+// This remains a stopgap for the window between payment and marking the watch
+// `status: 'sold'` in src/data/watches.ts. Do that promptly after each sale —
+// it is the only check with no failure mode at all.
 async function alreadySold(watchId) {
-  try {
+  const recentlyPaid = async () => {
     const { data } = await stripe.checkout.sessions.list({ limit: 100 });
     return data.some(
       (s) => s.metadata?.watchId === watchId && s.payment_status === 'paid' && s.livemode
     );
-  } catch (error) {
-    console.error('alreadySold check failed (allowing checkout):', error);
-    return false;
+  };
+
+  const everPaid = async () => {
+    const { data } = await stripe.paymentIntents.search({
+      query: `metadata['watchId']:'${watchId}' AND status:'succeeded'`,
+      limit: 1,
+    });
+    return data.some((pi) => pi.livemode);
+  };
+
+  // Run both, and treat an individual failure as "no match" rather than
+  // letting it veto the other check.
+  const results = await Promise.allSettled([recentlyPaid(), everPaid()]);
+  for (const r of results) {
+    if (r.status === 'rejected') {
+      console.error('alreadySold lookup failed (ignoring this one):', r.reason);
+    } else if (r.value) {
+      return true;
+    }
   }
+  return false;
 }
 
 export default async function createCheckoutSession(request) {
@@ -96,6 +120,9 @@ export default async function createCheckoutSession(request) {
       line_items: [{ price: priceId, quantity: 1 }],
       client_reference_id: watchId,
       metadata: { watchId },
+      // Stripe does not copy session metadata onto the PaymentIntent, so set
+      // it explicitly — the PaymentIntent search in alreadySold() reads it.
+      payment_intent_data: { metadata: { watchId } },
       expires_at: Math.floor(Date.now() / 1000) + 30 * 60,
       shipping_address_collection: { allowed_countries: ['US'] },
       shipping_options: [
