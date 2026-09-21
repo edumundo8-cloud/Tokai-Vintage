@@ -31,9 +31,17 @@ export default function ProductCard({
   const isSold = watch.status === 'sold';
 
   return (
-    <button
-      type="button"
-      onClick={() => onOpen(watch)}
+    <a
+      href={`/w/${watch.slug}`}
+      onClick={(e) => {
+        // A plain left click opens the detail modal in place. Modifier and
+        // middle clicks stay real navigations, so the listing URL can be
+        // opened in a new tab — and, just as importantly, crawled and
+        // followed as an ordinary internal link.
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        onOpen(watch);
+      }}
       className="group block w-full text-left"
       aria-label={
         isSold
@@ -80,6 +88,6 @@ export default function ProductCard({
       <p className={isSold ? 'mt-1 text-sm text-charcoal/40' : 'mt-1 text-sm text-charcoal/60'}>
         {isSold ? 'Sold' : formatUsd(watch.price)}
       </p>
-    </button>
+    </a>
   );
 }

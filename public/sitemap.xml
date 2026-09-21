@@ -1,28 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tokaivintage.com/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://tokaivintage.com/w/seiko-5-automatic-7s26-two-tone-champagne-dial</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-1.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-2.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-3.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-4.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-5.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-6.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-7.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-8.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-president/seiko-president-9.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Two-Tone Champagne Dial</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://tokaivintage.com/w/seiko-5-automatic-7s26-blue-striped-dial</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-5/seiko-5-1.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Rare Blue Striped Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-5/seiko-5-2.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Rare Blue Striped Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-5/seiko-5-3.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Rare Blue Striped Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-5/seiko-5-4.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Rare Blue Striped Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-5/seiko-5-5.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Rare Blue Striped Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-5/seiko-5-6.jpg</image:loc>
+      <image:title>Seiko 5 Automatic 7S26 — Rare Blue Striped Dial</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://tokaivintage.com/w/seiko-skx007-pepsi-diver</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-1.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-2.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-3.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-4.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-5.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-6.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-7.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/seiko-pepsi/seiko-pepsi-8.jpg</image:loc>
+      <image:title>Seiko SKX007 — Pepsi Diver</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://tokaivintage.com/w/king-seiko-vanac-5626-7140-blue-dial</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/king-seiko-vanac/king-seiko-vanac-1.jpg</image:loc>
+      <image:title>King Seiko Vanac 5626-7140 — Blue Sunburst Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/king-seiko-vanac/king-seiko-vanac-2.jpg</image:loc>
+      <image:title>King Seiko Vanac 5626-7140 — Blue Sunburst Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/king-seiko-vanac/king-seiko-vanac-3.jpg</image:loc>
+      <image:title>King Seiko Vanac 5626-7140 — Blue Sunburst Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/king-seiko-vanac/king-seiko-vanac-4.jpg</image:loc>
+      <image:title>King Seiko Vanac 5626-7140 — Blue Sunburst Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/king-seiko-vanac/king-seiko-vanac-5.jpg</image:loc>
+      <image:title>King Seiko Vanac 5626-7140 — Blue Sunburst Dial</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokaivintage.com/images/king-seiko-vanac/king-seiko-vanac-6.jpg</image:loc>
+      <image:title>King Seiko Vanac 5626-7140 — Blue Sunburst Dial</image:title>
+    </image:image>
   </url>
 </urlset>

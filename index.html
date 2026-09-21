@@ -7,45 +7,63 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!--
+      Everything between seo:start and seo:end is replaced per page by
+      scripts/prerender.mjs, which writes a static /w/<slug> HTML file for
+      every listing after the Vite build. Keep the markers intact.
+    -->
+    <!-- seo:start -->
     <title>Tokai Vintage — Japanese &amp; Swiss Vintage Watches</title>
     <meta
       name="description"
-      content="Tokai Vintage — Japanese and Swiss vintage watches, chosen with care and described plainly, good and bad. Wabi-sabi at heart."
+      content="Vintage Seiko, King Seiko and Swiss watches, each photographed as it truly is and described plainly — good and bad. Flat-rate USPS shipping within the United States."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://tokaivintage.com/" />
     <meta name="theme-color" content="#26362C" />
 
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Tokai Vintage" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="Tokai Vintage — Japanese &amp; Swiss Vintage Watches" />
     <meta
       property="og:description"
-      content="Japanese and Swiss vintage watches, chosen with care and described plainly, good and bad."
+      content="Vintage Seiko, King Seiko and Swiss watches, chosen with care and described plainly, good and bad."
     />
     <meta property="og:url" content="https://tokaivintage.com/" />
     <meta property="og:image" content="https://tokaivintage.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tokai Vintage — vintage Japanese and Swiss watches" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tokai Vintage — Japanese &amp; Swiss Vintage Watches" />
     <meta
       name="twitter:description"
-      content="Japanese and Swiss vintage watches, chosen with care and described plainly, good and bad."
+      content="Vintage Seiko, King Seiko and Swiss watches, chosen with care and described plainly, good and bad."
     />
     <meta name="twitter:image" content="https://tokaivintage.com/og-image.jpg" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Store",
+        "@type": "OnlineStore",
+        "@id": "https://tokaivintage.com/#store",
         "name": "Tokai Vintage",
-        "description": "Japanese and Swiss vintage watches, chosen with care and described plainly, good and bad.",
+        "description": "Vintage Japanese and Swiss watches, chosen with care and described plainly, good and bad.",
         "url": "https://tokaivintage.com/",
         "image": "https://tokaivintage.com/og-image.jpg",
-        "sameAs": ["https://www.ebay.com/usr/tokai-vintage"]
+        "logo": "https://tokaivintage.com/images/brand/logo-mark.png",
+        "currenciesAccepted": "USD",
+        "paymentAccepted": "Credit Card",
+        "areaServed": { "@type": "Country", "name": "United States" },
+        "sameAs": [
+          "https://www.ebay.com/usr/tokai-vintage",
+          "https://www.youtube.com/@TimeNPower"
+        ]
       }
     </script>
+    <!-- seo:end -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

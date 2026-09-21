@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Serverless endpoints — nothing to index, and crawling them costs invocations.
+Disallow: /.netlify/
+
 Sitemap: https://tokaivintage.com/sitemap.xml

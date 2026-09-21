@@ -52,6 +52,31 @@ replace one of the two `coming-soon` placeholders). Drop its photos into
 card, modal, and gallery all pick it up automatically, no other changes
 needed.
 
+## SEO
+
+The site is a single-page app, so listing URLs need help to exist for
+crawlers and link previews. Two build steps handle that, both driven by
+`src/data/watches.ts` — adding a watch is still the only edit needed.
+
+- `scripts/gen-sitemap.mjs` (prebuild) writes `public/sitemap.xml`, including
+  an `<image:image>` entry per photograph so the watch photos can surface in
+  Google Images.
+- `scripts/prerender.mjs` (postbuild) writes a real HTML file for every
+  `/w/<slug>` URL into `dist/`, carrying that watch's title, meta description,
+  canonical, Open Graph tags, Product + BreadcrumbList structured data, and a
+  `<noscript>` copy of the listing text. Without it, a link shared on a forum
+  or in a message previews as the generic homepage.
+
+The prerender works by swapping the block between the `<!-- seo:start -->` and
+`<!-- seo:end -->` markers in `index.html` — leave those comments in place.
+`src/lib/seo.ts` builds the tags and is shared with `ProductModal`, which
+applies the same metadata to the live document when a watch is opened, so the
+JavaScript and no-JavaScript views always agree.
+
+Product cards are real `<a href="/w/…">` links (a plain click still opens the
+modal in place), which gives every listing a crawlable internal link and lets
+visitors open one in a new tab.
+
 ## Checkout / Stripe
 
 Checkout runs through **Stripe Checkout Sessions**, created dynamically by a

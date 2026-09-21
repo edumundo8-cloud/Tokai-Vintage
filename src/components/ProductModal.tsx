@@ -1,38 +1,26 @@
 import { useEffect, useRef } from 'react';
 import type { Watch } from '@/data/watches';
 import { formatUsd } from '@/lib/format';
-import { SITE_URL, SITE_NAME } from '@/lib/site';
+import {
+  watchBreadcrumbJsonLd,
+  watchDescription,
+  watchImageUrl,
+  watchProductJsonLd,
+  watchTitle,
+  watchUrl,
+} from '@/lib/seo';
 import { useFocusTrap } from '@/lib/useFocusTrap';
 import ImageGallery from './ImageGallery';
 import PurchaseReview from './PurchaseReview';
 
-const AVAILABILITY: Record<Watch['status'], string> = {
-  available: 'https://schema.org/InStock',
-  sold: 'https://schema.org/SoldOut',
-  'coming-soon': 'https://schema.org/PreOrder',
-};
-
-function watchJsonLd(watch: Watch) {
-  const url = `${SITE_URL}/w/${watch.slug}`;
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: watch.name,
-    image: watch.images.map((src) => `${SITE_URL}${src}`),
-    description: watch.shortDescription,
-    brand: { '@type': 'Brand', name: watch.brand || SITE_NAME },
-    ...(watch.specs.find((s) => s.label === 'Serial')
-      ? { sku: watch.specs.find((s) => s.label === 'Serial')!.value }
-      : {}),
-    offers: {
-      '@type': 'Offer',
-      url,
-      priceCurrency: watch.currency,
-      price: watch.price,
-      itemCondition: 'https://schema.org/UsedCondition',
-      availability: AVAILABILITY[watch.status],
-      seller: { '@type': 'Organization', name: SITE_NAME },
-    },
+/** Sets an existing <head> tag's attribute, returning the previous value. */
+function swapAttr(selector: string, attr: string, value: string): () => void {
+  const el = document.head.querySelector(selector);
+  if (!el) return () => {};
+  const previous = el.getAttribute(attr);
+  el.setAttribute(attr, value);
+  return () => {
+    if (previous !== null) el.setAttribute(attr, previous);
   };
 }
 
@@ -64,26 +52,43 @@ export default function ProductModal({
     };
   }, [onClose]);
 
-  // Reflect the open watch in the document metadata so a shared /w/<slug>
-  // link and search engines see this specific piece.
+  // Mirror the prerendered /w/<slug> page's metadata into the live document,
+  // so a link shared from an open modal previews as this watch and a crawler
+  // running JavaScript sees exactly what the static file says.
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = `${watch.name} — ${SITE_NAME}`;
+    document.title = watchTitle(watch);
 
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    const previousCanonical = canonical?.getAttribute('href') ?? null;
-    canonical?.setAttribute('href', `${SITE_URL}/w/${watch.slug}`);
+    const description = watchDescription(watch);
+    const url = watchUrl(watch);
+    const image = watchImageUrl(watch);
 
-    const ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.dataset.watch = watch.slug;
-    ld.textContent = JSON.stringify(watchJsonLd(watch));
-    document.head.appendChild(ld);
+    const restore = [
+      swapAttr('link[rel="canonical"]', 'href', url),
+      swapAttr('meta[name="description"]', 'content', description),
+      swapAttr('meta[property="og:type"]', 'content', 'product'),
+      swapAttr('meta[property="og:title"]', 'content', document.title),
+      swapAttr('meta[property="og:description"]', 'content', description),
+      swapAttr('meta[property="og:url"]', 'content', url),
+      swapAttr('meta[property="og:image"]', 'content', image),
+      swapAttr('meta[name="twitter:title"]', 'content', document.title),
+      swapAttr('meta[name="twitter:description"]', 'content', description),
+      swapAttr('meta[name="twitter:image"]', 'content', image),
+    ];
+
+    const scripts = [watchProductJsonLd(watch), watchBreadcrumbJsonLd(watch)].map((data) => {
+      const ld = document.createElement('script');
+      ld.type = 'application/ld+json';
+      ld.dataset.watch = watch.slug;
+      ld.textContent = JSON.stringify(data);
+      document.head.appendChild(ld);
+      return ld;
+    });
 
     return () => {
       document.title = previousTitle;
-      if (previousCanonical) canonical?.setAttribute('href', previousCanonical);
-      ld.remove();
+      restore.forEach((undo) => undo());
+      scripts.forEach((ld) => ld.remove());
     };
   }, [watch]);
 
