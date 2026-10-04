@@ -28,6 +28,9 @@ src/
   lib/
     format.ts            ← price formatting
     stripe.ts             ← Stripe Checkout Session + email-inquiry fallback logic
+    seo.ts                ← per-listing title/meta/structured data (see SEO)
+    site.ts               ← canonical site URL and name
+    img.ts                ← srcset helpers for the generated WebP variants
   components/
     Header.tsx            ← nav + mobile menu
     Hero.tsx
@@ -36,21 +39,33 @@ src/
     ProductGrid.tsx / ProductCard.tsx
     ProductModal.tsx      ← product detail modal
     ImageGallery.tsx      ← gallery + thumbnails + full-size lightbox
+    ResponsiveImage.tsx   ← <picture> with WebP variants + JPEG fallback
     PurchaseReview.tsx    ← price/shipping/total + checkout buttons
+    CheckoutNotice.tsx    ← banner shown on return from Stripe
     OurStory.tsx / ShippingInfo.tsx / EbaySection.tsx / Footer.tsx
 public/images/
-  seiko-5/                ← Seiko 5 gallery photos
-  seiko-pepsi/             ← SKX007 Pepsi gallery photos
+  <watch-slug>/           ← one folder of gallery photos per watch
   hero/                    ← hero photograph
+netlify/functions/        ← checkout backend (see Checkout / Stripe)
+scripts/                  ← build steps + the Stripe price helper
 ```
+
+`scripts/gen-images.mjs` runs before every build and writes 480/960/1440px
+WebP variants next to each gallery JPEG, so new photos only need the JPEG.
 
 ## Adding a new watch
 
 Open `src/data/watches.ts` and add an object to the `watches` array (or
-replace one of the two `coming-soon` placeholders). Drop its photos into
+replace the `coming-soon` placeholder). Drop its photos into
 `public/images/<slug>/` and reference them in the `images` array — the grid,
 card, modal, and gallery all pick it up automatically, no other changes
 needed.
+
+To sell it by card rather than by inquiry, give it a live Stripe price:
+
+```bash
+node --env-file=.env scripts/create-stripe-price.mjs <watch-id>
+```
 
 ## SEO
 
@@ -89,29 +104,49 @@ falls back to an email inquiry / the eBay listing instead.
 ```
 netlify/functions/
   create-checkout-session.mjs  ← creates the Checkout Session (POST { priceId })
-  stripe-webhook.mjs            ← handles checkout.session.completed
+  stripe-webhook.mjs            ← handles checkout.session.completed, emails the order
+  get-checkout-session.mjs      ← order summary for the confirmation banner
 ```
 
-Required Netlify environment variables (Site settings → Environment
-variables), from your Stripe Dashboard:
+**Checkout is live.** It takes real payments on the production Stripe
+account and has been verified end to end against tokaivintage.com.
+[STRIPE_SETUP.md](STRIPE_SETUP.md) covers how it is wired and how to add a
+price for a new watch;
+[STRIPE_INTEGRATION_TODO.md](STRIPE_INTEGRATION_TODO.md) records what is
+done and what is still open.
 
-- `STRIPE_SECRET_KEY` — your Stripe secret key.
-- `STRIPE_WEBHOOK_SECRET` — the signing secret for a webhook endpoint
-  pointed at `https://tokaivintage.com/.netlify/functions/stripe-webhook`,
-  listening for `checkout.session.completed`.
+Netlify environment variables (Site settings → Environment variables), all
+server-only:
 
-This project is currently wired up against a **Stripe test-mode** account.
-Switch to live keys in Netlify's environment variables (and re-register the
-webhook endpoint against the live account) when ready to accept real
-payments.
+- `STRIPE_SECRET_KEY` — the live secret key (`sk_live_…`).
+- `STRIPE_WEBHOOK_SECRET` — the live signing secret for the endpoint at
+  `https://tokaivintage.com/.netlify/functions/stripe-webhook`, listening
+  for `checkout.session.completed`.
+- `RESEND_API_KEY` — sends the order-notification email.
+- `ORDER_NOTIFY_EMAIL` — optional; where order emails go.
 
-## Before going live
+Editing a variable does not rebuild the site — trigger a deploy afterwards.
 
-- Set `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` to your **live** Stripe
-  keys in Netlify, and register the live webhook endpoint (see above).
-- The inquiry-button fallback currently emails `edumundo8@gmail.com`
-  (`src/lib/stripe.ts`) — update it if you'd rather use a dedicated
-  business address.
-- Confirm the eBay profile URL in `src/data/watches.ts` and the
-  Header/Footer nav.
-- Fill in the two "coming soon" slots when new watches are ready.
+The local `.env` also holds the **live** secret key (it is used by
+`scripts/create-stripe-price.mjs`). Anything run against it — including
+`netlify dev` — talks to the real account, so use a `sk_test_…` key when
+you want to click through checkout locally.
+
+## After each sale
+
+Every watch is one of a kind. Once a watch sells, set `status: 'sold'` in
+`src/data/watches.ts` and push. The checkout function also refuses a watch
+that already has a paid session, but marking it sold is the real fix.
+
+## Still open
+
+- Send a webhook test event from the Stripe Dashboard to confirm
+  `STRIPE_WEBHOOK_SECRET` matches (a mismatch fails silently — the buyer is
+  charged, only the order email is lost).
+- Decide whether to collect sales tax (`automatic_tax` is off).
+- Order emails come from `orders@resend.dev`, Resend's shared sandbox
+  domain; verify a tokaivintage.com sender for better deliverability.
+- The inquiry-button fallback emails `edumundo8@gmail.com`
+  (`src/lib/stripe.ts`) — change it if you want a dedicated business
+  address.
+- Fill in the "coming soon" slot when the next watch is ready.
