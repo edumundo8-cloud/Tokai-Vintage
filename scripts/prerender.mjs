@@ -8,12 +8,17 @@
 // Open Graph tags and Product structured data, and drop a <noscript> copy of
 // the listing text into the body. React still takes over and renders the
 // modal as usual once the bundle loads.
+//
+// It also writes two standalone pages that don't load the app: /returns (the
+// return policy that the structured data and Google Merchant Center link to)
+// and 404.html, which Netlify serves with a real 404 status for unknown URLs.
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { watches } from '../src/data/watches.ts';
-import { SITE_NAME } from '../src/lib/site.ts';
+import { RETURNS, SHIPPING, watches } from '../src/data/watches.ts';
+import { CONTACT_EMAIL, RETURNS_PATH, SITE_NAME, SITE_URL } from '../src/lib/site.ts';
 import { formatUsd } from '../src/lib/format.ts';
 import {
   collectionJsonLd,
+  storeJsonLd,
   watchBreadcrumbJsonLd,
   watchDescription,
   watchImageUrl,
@@ -114,11 +119,14 @@ function watchNoscript(watch) {
 
 const listed = watches.filter((w) => w.status !== 'coming-soon');
 
-// Homepage: keep its own head, add the collection list so search engines can
-// see every listing (and its price) from the entry point.
+// Homepage: keep its own head, add the store and the collection list so
+// search engines can see every listing (and its price) from the entry point.
 await writeFile(
   'dist/index.html',
-  template.replace(END, `${jsonLd(collectionJsonLd(listed))}\n    ${END}`),
+  template.replace(
+    END,
+    `${jsonLd(storeJsonLd())}\n    ${jsonLd(collectionJsonLd(listed))}\n    ${END}`
+  ),
   'utf8'
 );
 
@@ -135,4 +143,93 @@ for (const watch of listed) {
   await writeFile(`dist/w/${watch.slug}.html`, html, 'utf8');
 }
 
-console.log(`prerender: ${listed.length} listing pages + homepage`);
+/**
+ * A plain page in the site's colours and fonts, without the React bundle —
+ * served as-is so it can never fall back to rendering the homepage.
+ */
+function staticPage({ title, description, canonical, robots, body }) {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}" />
+    <meta name="robots" content="${robots}" />
+    ${canonical ? `<link rel="canonical" href="${canonical}" />` : ''}
+    <meta name="theme-color" content="#26362C" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      body { margin: 0; background: #f6f1e4; color: #211f1c; font: 16px/1.7 'Work Sans', system-ui, sans-serif; }
+      header, footer { background: #1a261f; color: #f6f1e4; padding: 18px 20px; }
+      header a { color: #f6f1e4; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 0.14em; }
+      main { max-width: 680px; margin: 0 auto; padding: 48px 20px 64px; }
+      h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.2; }
+      h1 { font-size: 40px; margin: 0 0 16px; }
+      h2 { font-size: 26px; margin: 36px 0 8px; }
+      a { color: #3e5544; }
+      .eyebrow { color: #6e9583; font-size: 12px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; margin: 0 0 8px; }
+      footer { font-size: 13px; text-align: center; color: rgba(246, 241, 228, 0.6); }
+    </style>
+  </head>
+  <body>
+    <header><a href="/">TOKAI VINTAGE</a></header>
+    <main>
+${body}
+    </main>
+    <footer>© ${new Date().getFullYear()} ${esc(SITE_NAME)}. Shipping within the United States only.</footer>
+  </body>
+</html>
+`;
+}
+
+const mailto = `<a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>`;
+const returnsHtml = staticPage({
+  title: `Shipping & Returns | ${SITE_NAME}`,
+  description: `${RETURNS.windowDays}-day returns on every watch. Flat $${SHIPPING.flatRateUsd} ${SHIPPING.carrier} shipping within the United States.`,
+  canonical: `${SITE_URL}${RETURNS_PATH}`,
+  robots: 'index, follow',
+  body: `      <p class="eyebrow">Policies</p>
+      <h1>Shipping &amp; Returns</h1>
+
+      <h2>Returns</h2>
+      <p>You can return any watch within <strong>${RETURNS.windowDays} days of delivery</strong> for a refund.</p>
+      <ul>
+        <li>Email ${mailto} with your order details before sending anything back, and we'll reply with the return address.</li>
+        <li>The watch must come back in the condition it was sent, with everything that came with it (box, papers, spare links). Please don't open, adjust or service it.</li>
+        <li>${RETURNS.buyerPaysReturnShipping ? 'Return shipping is paid by the buyer. Please ship it insured and with tracking.' : 'Return shipping is on us — we will send you a prepaid label.'}</li>
+        <li>Once the watch arrives and we've checked it, the purchase price is refunded to your original payment method within ${RETURNS.refundBusinessDays} business days. The original shipping charge is not refunded.</li>
+        <li>If a watch arrives not as described, we cover the return shipping and refund the full amount, shipping included.</li>
+      </ul>
+
+      <h2>Shipping</h2>
+      <p>Every watch ships via ${SHIPPING.carrier} for a flat $${SHIPPING.flatRateUsd}, ${SHIPPING.region}. ${SHIPPING.note}</p>
+
+      <h2>Contact</h2>
+      <p>Questions about a watch, an order or a return: ${mailto}.</p>
+
+      <p><a href="/">← Back to the collection</a></p>`,
+});
+await mkdir(`dist${RETURNS_PATH}`, { recursive: true });
+await writeFile(`dist${RETURNS_PATH}/index.html`, returnsHtml, 'utf8');
+await writeFile(`dist${RETURNS_PATH}.html`, returnsHtml, 'utf8');
+
+await writeFile(
+  'dist/404.html',
+  staticPage({
+    title: `Page not found | ${SITE_NAME}`,
+    description: 'This page does not exist.',
+    robots: 'noindex',
+    body: `      <p class="eyebrow">404</p>
+      <h1>This page doesn't exist</h1>
+      <p>The link may be old, or the watch it pointed to is no longer listed.</p>
+      <p><a href="/">← See the collection</a></p>`,
+  }),
+  'utf8'
+);
+
+console.log(`prerender: ${listed.length} listing pages + homepage, /returns, 404`);

@@ -4,9 +4,9 @@
 //
 // Keeping both paths on one source means a crawler that executes JavaScript
 // and one that only reads the raw HTML see exactly the same thing.
-import type { Watch } from '../data/watches.ts';
+import { RETURNS, SHIPPING, type Watch } from '../data/watches.ts';
 import { formatUsd } from './format.ts';
-import { SITE_NAME, SITE_URL } from './site.ts';
+import { CONTACT_EMAIL, RETURNS_PATH, SITE_NAME, SITE_URL } from './site.ts';
 
 const AVAILABILITY: Record<Watch['status'], string> = {
   available: 'https://schema.org/InStock',
@@ -48,6 +48,51 @@ export function watchDescription(watch: Watch): string {
   return `${(cut > 100 ? clipped.slice(0, cut) : clipped).replace(/[\s,;.—-]+$/, '')}…`;
 }
 
+/** The store's return policy, shared by every Offer and the store itself. */
+export function returnPolicyJsonLd(): Record<string, unknown> {
+  return {
+    '@type': 'MerchantReturnPolicy',
+    applicableCountry: 'US',
+    returnPolicyCountry: 'US',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: RETURNS.windowDays,
+    returnMethod: 'https://schema.org/ReturnByMail',
+    returnFees: RETURNS.buyerPaysReturnShipping
+      ? 'https://schema.org/ReturnFeesCustomerResponsibility'
+      : 'https://schema.org/FreeReturn',
+    merchantReturnLink: `${SITE_URL}${RETURNS_PATH}`,
+  };
+}
+
+function shippingDetailsJsonLd(): Record<string, unknown> {
+  return {
+    '@type': 'OfferShippingDetails',
+    shippingRate: { '@type': 'MonetaryAmount', value: SHIPPING.flatRateUsd, currency: 'USD' },
+    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'US' },
+  };
+}
+
+/** Homepage description of the store itself. */
+export function storeJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OnlineStore',
+    '@id': `${SITE_URL}/#store`,
+    name: SITE_NAME,
+    description:
+      'Vintage Japanese and Swiss watches, chosen with care and described plainly, good and bad.',
+    url: `${SITE_URL}/`,
+    image: `${SITE_URL}/og-image.jpg`,
+    logo: `${SITE_URL}/images/brand/logo-mark.png`,
+    email: CONTACT_EMAIL,
+    currenciesAccepted: 'USD',
+    paymentAccepted: 'Credit Card',
+    areaServed: { '@type': 'Country', name: 'United States' },
+    hasMerchantReturnPolicy: returnPolicyJsonLd(),
+    sameAs: ['https://www.ebay.com/usr/tokai-vintage', 'https://www.youtube.com/@TimeNPower'],
+  };
+}
+
 export function watchProductJsonLd(watch: Watch): Record<string, unknown> {
   const serial = watch.specs.find((s) => s.label === 'Serial')?.value;
   const model = watch.specs.find((s) => s.label === 'Model')?.value;
@@ -77,6 +122,8 @@ export function watchProductJsonLd(watch: Watch): Record<string, unknown> {
       // One watch, one example of it — never restocked.
       inventoryLevel: { '@type': 'QuantitativeValue', value: watch.status === 'available' ? 1 : 0 },
       seller: { '@type': 'Organization', '@id': `${SITE_URL}/#store`, name: SITE_NAME },
+      shippingDetails: shippingDetailsJsonLd(),
+      hasMerchantReturnPolicy: returnPolicyJsonLd(),
     },
   };
 }

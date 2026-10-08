@@ -1,4 +1,5 @@
 import type { Watch } from '@/data/watches';
+import { CONTACT_EMAIL } from './site';
 
 export function hasStripeCheckout(watch: Watch): boolean {
   return Boolean(watch.stripePriceId);
@@ -41,5 +42,5 @@ export function buildInquiryMailto(watch: Watch): string {
   const body = encodeURIComponent(
     `Hi Tokai Vintage,\n\nI'm interested in the ${watch.name} (${watch.price}).\n\nCould you tell me more about availability and next steps?\n\nThanks!`
   );
-  return `mailto:edumundo8@gmail.com?subject=${subject}&body=${body}`;
+  return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 }

@@ -1,3 +1,5 @@
+import { RETURNS_PATH } from '@/lib/site';
+
 export default function Footer() {
   return (
     <footer className="relative border-t border-charcoal/10 bg-forest-dim text-ivory/80">
@@ -11,6 +13,7 @@ export default function Footer() {
           <a href="#collection" className="hover:text-ivory">Collection</a>
           <a href="#our-story" className="hover:text-ivory">Our Story</a>
           <a href="#shipping" className="hover:text-ivory">Shipping</a>
+          <a href={RETURNS_PATH} className="hover:text-ivory">Returns</a>
           <a
             href="https://www.ebay.com/usr/tokai-vintage"
             target="_blank"

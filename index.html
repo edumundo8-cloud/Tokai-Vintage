@@ -13,7 +13,8 @@
     <!--
       Everything between seo:start and seo:end is replaced per page by
       scripts/prerender.mjs, which writes a static /w/<slug> HTML file for
-      every listing after the Vite build. Keep the markers intact.
+      every listing after the Vite build, and adds the homepage's store and
+      collection structured data. Keep the markers intact.
     -->
     <!-- seo:start -->
     <title>Tokai Vintage — Japanese &amp; Swiss Vintage Watches</title>
@@ -46,26 +47,6 @@
       content="Vintage Seiko, King Seiko and Swiss watches, chosen with care and described plainly, good and bad."
     />
     <meta name="twitter:image" content="https://tokaivintage.com/og-image.jpg" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "OnlineStore",
-        "@id": "https://tokaivintage.com/#store",
-        "name": "Tokai Vintage",
-        "description": "Vintage Japanese and Swiss watches, chosen with care and described plainly, good and bad.",
-        "url": "https://tokaivintage.com/",
-        "image": "https://tokaivintage.com/og-image.jpg",
-        "logo": "https://tokaivintage.com/images/brand/logo-mark.png",
-        "currenciesAccepted": "USD",
-        "paymentAccepted": "Credit Card",
-        "areaServed": { "@type": "Country", "name": "United States" },
-        "sameAs": [
-          "https://www.ebay.com/usr/tokai-vintage",
-          "https://www.youtube.com/@TimeNPower"
-        ]
-      }
-    </script>
     <!-- seo:end -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

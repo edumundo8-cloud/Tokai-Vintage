@@ -6,7 +6,6 @@
 [functions]
   node_bundler = "esbuild"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No catch-all SPA rewrite: every real URL is a file in dist (/, /returns and
+# the prerendered /w/<slug> pages), so anything else gets dist/404.html with
+# a real 404 status instead of the homepage served as a soft 404.

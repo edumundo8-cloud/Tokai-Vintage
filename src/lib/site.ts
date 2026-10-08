@@ -9,3 +9,9 @@
 export const SITE_URL = 'https://tokaivintage.com';
 
 export const SITE_NAME = 'Tokai Vintage';
+
+// Public contact address — inquiry links, the /returns page and the store's
+// structured data all point here.
+export const CONTACT_EMAIL = 'edumundo8@gmail.com';
+
+export const RETURNS_PATH = '/returns';

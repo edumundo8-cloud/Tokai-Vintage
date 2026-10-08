@@ -1,4 +1,5 @@
-import { SHIPPING } from '@/data/watches';
+import { RETURNS, SHIPPING } from '@/data/watches';
+import { RETURNS_PATH } from '@/lib/site';
 
 export default function ShippingInfo() {
   return (
@@ -13,9 +14,17 @@ export default function ShippingInfo() {
         <p className="mx-auto mt-4 max-w-xl text-balance leading-relaxed text-charcoal-soft/85">
           Every watch ships via {SHIPPING.carrier} for a flat {SHIPPING.flatRateUsd
             ? `$${SHIPPING.flatRateUsd}`
-            : ''}, {SHIPPING.region.toLowerCase()} at this time — no international shipping.
+            : ''}, {SHIPPING.region} at this time — no international shipping.
           {' '}
           {SHIPPING.note} Exact totals are always shown before you check out.
+        </p>
+        <p className="mx-auto mt-3 max-w-xl text-balance leading-relaxed text-charcoal-soft/85">
+          Changed your mind? Every watch can be returned within {RETURNS.windowDays} days of
+          delivery.{' '}
+          <a href={RETURNS_PATH} className="underline underline-offset-4 hover:text-forest">
+            Read the return policy
+          </a>
+          .
         </p>
       </div>
     </section>

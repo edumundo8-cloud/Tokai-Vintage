@@ -3,7 +3,7 @@
 // watch photos get picked up for Google Images. Runs before each build.
 import { writeFile } from 'node:fs/promises';
 import { watches } from '../src/data/watches.ts';
-import { SITE_URL } from '../src/lib/site.ts';
+import { RETURNS_PATH, SITE_URL } from '../src/lib/site.ts';
 
 const today = new Date().toISOString().slice(0, 10);
 
@@ -19,6 +19,7 @@ const urls = [
       priority: '0.8',
       images: w.images.map((src) => ({ loc: `${SITE_URL}${src}`, title: w.name })),
     })),
+  { loc: `${SITE_URL}${RETURNS_PATH}`, priority: '0.3', images: [] },
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

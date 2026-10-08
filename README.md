@@ -80,7 +80,13 @@ crawlers and link previews. Two build steps handle that, both driven by
   `/w/<slug>` URL into `dist/`, carrying that watch's title, meta description,
   canonical, Open Graph tags, Product + BreadcrumbList structured data, and a
   `<noscript>` copy of the listing text. Without it, a link shared on a forum
-  or in a message previews as the generic homepage.
+  or in a message previews as the generic homepage. It also writes the
+  standalone `/returns` page (policy text from `RETURNS` and `SHIPPING` in
+  `watches.ts`) and `404.html`.
+
+There is deliberately no catch-all `/* → /index.html` rewrite in
+`netlify.toml`: every real URL is a file in `dist/`, and anything else gets
+`404.html` with a real 404 status. A new route needs its own file.
 
 The prerender works by swapping the block between the `<!-- seo:start -->` and
 `<!-- seo:end -->` markers in `index.html` — leave those comments in place.

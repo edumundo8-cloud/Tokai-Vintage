@@ -256,6 +256,14 @@ export const SHIPPING = {
   note: 'No international shipping at this time. Any applicable taxes are additional.',
 };
 
+// Read by the Shipping section, the /returns page and the Offer structured
+// data (hasMerchantReturnPolicy), so the policy is stated the same everywhere.
+export const RETURNS = {
+  windowDays: 7,
+  buyerPaysReturnShipping: true,
+  refundBusinessDays: 5,
+};
+
 export function getWatchBySlug(slug: string): Watch | undefined {
   return watches.find((w) => w.slug === slug);
 }
