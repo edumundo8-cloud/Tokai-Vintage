@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build",
     "postbuild": "node scripts/prerender.mjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "videos": "node scripts/fetch-videos.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

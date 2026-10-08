@@ -84,6 +84,21 @@ crawlers and link previews. Two build steps handle that, both driven by
   standalone `/returns` page (policy text from `RETURNS` and `SHIPPING` in
   `watches.ts`) and `404.html`.
 
+### Videos
+
+The homepage "stories behind the watches" section and the `/videos` pages
+come from `src/data/videos.json`, a copy of the public TIME & POWER channel.
+After publishing a video, refresh it and commit the result:
+
+```bash
+npm run videos
+```
+
+The build itself never calls YouTube. Each `/videos/<slug>` page embeds the
+video with its summary, chapters (as key-moment Clips in the VideoObject
+data) and, when `content/transcripts/<videoId>.srt` exists, the full
+transcript — drop the episode's SRT there to add one.
+
 There is deliberately no catch-all `/* → /index.html` rewrite in
 `netlify.toml`: every real URL is a file in `dist/`, and anything else gets
 `404.html` with a real 404 status. A new route needs its own file.

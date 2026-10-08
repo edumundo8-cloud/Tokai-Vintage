@@ -7,6 +7,16 @@
 import { RETURNS, SHIPPING, type Watch } from '../data/watches.ts';
 import { formatUsd } from './format.ts';
 import { CONTACT_EMAIL, RETURNS_PATH, SITE_NAME, SITE_URL } from './site.ts';
+import {
+  CHANNEL_NAME,
+  CHANNEL_URL,
+  embedUrl,
+  isoDuration,
+  thumbnailUrl,
+  VIDEOS_PATH,
+  videoUrl,
+  type Video,
+} from './video.ts';
 
 const AVAILABILITY: Record<Watch['status'], string> = {
   available: 'https://schema.org/InStock',
@@ -152,6 +162,67 @@ export function collectionJsonLd(listed: Watch[]): Record<string, unknown> {
       position: i + 1,
       url: watchUrl(watch),
       name: watch.name,
+    })),
+  };
+}
+
+/**
+ * VideoObject for a /videos/<slug> page. Chapters become Clips, which is what
+ * lets Google show "key moments" — each Clip URL opens the page's player at
+ * that second (the page reads ?t=).
+ */
+export function videoJsonLd(video: Video): Record<string, unknown> {
+  const url = videoUrl(video);
+  const clips = video.chapters.map((chapter, i) => ({
+    '@type': 'Clip',
+    name: chapter.label,
+    startOffset: chapter.seconds,
+    endOffset: video.chapters[i + 1]?.seconds ?? video.durationSeconds,
+    url: `${url}?t=${chapter.seconds}`,
+  }));
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    '@id': `${url}#video`,
+    name: video.title,
+    description: video.summary.join(' ') || video.title,
+    thumbnailUrl: [thumbnailUrl(video, 'maxres'), thumbnailUrl(video, 'mq')],
+    uploadDate: video.uploadDate,
+    duration: isoDuration(video.durationSeconds),
+    embedUrl: embedUrl(video),
+    url,
+    inLanguage: 'en',
+    author: { '@type': 'Organization', name: CHANNEL_NAME, url: CHANNEL_URL },
+    publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#store`, name: SITE_NAME },
+    ...(clips.length > 0 ? { hasPart: clips } : {}),
+  };
+}
+
+export function videoBreadcrumbJsonLd(video: Video): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE_NAME, item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Videos', item: `${SITE_URL}${VIDEOS_PATH}` },
+      { '@type': 'ListItem', position: 3, name: video.title, item: videoUrl(video) },
+    ],
+  };
+}
+
+/** The /videos index: a summary list pointing at each video's own page. */
+export function videoListJsonLd(videos: Video[]): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${CHANNEL_NAME} — watch history documentaries`,
+    numberOfItems: videos.length,
+    itemListElement: videos.map((video, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: videoUrl(video),
+      name: video.title,
     })),
   };
 }

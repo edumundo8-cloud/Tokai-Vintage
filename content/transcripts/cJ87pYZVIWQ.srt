@@ -1,0 +1,447 @@
+1
+00:00:01,500 --> 00:00:06,567
+A hockey player lines up a shot. He swings. Except that isn't a puck.
+
+2
+00:00:06,567 --> 00:00:07,521
+It's a watch.
+
+3
+00:00:07,521 --> 00:00:12,955
+It flies across the ice, into the goalie's glove — and it's still running.
+
+4
+00:00:12,955 --> 00:00:16,774
+That was a real television commercial, back in 1984.
+
+5
+00:00:16,774 --> 00:00:19,785
+And most people simply didn't believe it.
+
+6
+00:00:19,785 --> 00:00:24,044
+They assumed the ad was a trick, because of course it was.
+
+7
+00:00:24,044 --> 00:00:25,732
+No watch survives that.
+
+8
+00:00:25,732 --> 00:00:31,166
+So a news programme decided to find out for themselves. On air. Same shot.
+
+9
+00:00:31,166 --> 00:00:34,985
+Same conditions. We'll come back to that, I promise.
+
+10
+00:00:34,985 --> 00:00:40,566
+Because here's the part that surprises people. That ad was a rescue mission.
+
+11
+00:00:40,566 --> 00:00:43,503
+The watch in it had already failed once.
+
+12
+00:00:43,503 --> 00:00:52,682
+It went on sale in Japan a year earlier and sold so poorly that watch shops didn't really want it — and the reason is lovely.
+
+13
+00:00:52,682 --> 00:00:57,161
+And the man who made it had spent two years breaking watches.
+
+14
+00:00:57,161 --> 00:00:59,364
+More than two hundred of them.
+
+15
+00:00:59,364 --> 00:01:06,120
+Up to a third-floor bathroom, open the window, drop it, walk downstairs, pick up the pieces.
+
+16
+00:01:06,120 --> 00:01:07,368
+Then do it again.
+
+17
+00:01:07,368 --> 00:01:13,390
+What finally solved it was sitting in a park, watching a kid bounce a rubber ball.
+
+18
+00:01:13,390 --> 00:01:17,061
+So, three questions. Why didn't the shops want it?
+
+19
+00:01:17,061 --> 00:01:19,852
+What did that bouncing ball teach him?
+
+20
+00:01:19,852 --> 00:01:25,726
+And how does a watch nobody wanted end up on more than a hundred million wrists?
+
+21
+00:01:25,726 --> 00:01:28,149
+This is the story of the G-Shock.
+
+22
+00:01:28,149 --> 00:01:33,510
+And it starts, the way these stories usually do, with something breaking.
+
+23
+00:01:34,510 --> 00:01:36,112
+His name is Kikuo Ibe.
+
+24
+00:01:36,112 --> 00:01:44,853
+He's a young engineer at Casio, and one morning on his way to work, his watch comes off his wrist and hits the pavement.
+
+25
+00:01:44,853 --> 00:01:47,257
+It doesn't crack. It comes apart.
+
+26
+00:01:47,257 --> 00:01:51,846
+Springs, screws, tiny pieces of metal, all over a Tokyo street.
+
+27
+00:01:51,846 --> 00:01:54,104
+His father gave him that watch.
+
+28
+00:01:54,104 --> 00:02:00,004
+So Ibe goes back to his desk and writes a proposal for a watch that cannot break.
+
+29
+00:02:00,004 --> 00:02:03,500
+Inside Casio it gets a name: Project Team Tough.
+
+30
+00:02:03,500 --> 00:02:07,725
+And three targets, which the company called the Triple 10.
+
+31
+00:02:07,725 --> 00:02:13,188
+Survive a ten-metre drop. Ten bars of water pressure. Ten years of battery.
+
+32
+00:02:13,188 --> 00:02:17,631
+In 1981, that sounds impossible. A watch is a delicate thing.
+
+33
+00:02:17,631 --> 00:02:22,511
+You take it off to play sports. You take it off to wash the dishes.
+
+34
+00:02:22,511 --> 00:02:27,901
+But here's the thing people forget. Casio wasn't an old Swiss watch house.
+
+35
+00:02:27,901 --> 00:02:32,344
+Casio made calculators, and came into watches through quartz.
+
+36
+00:02:32,344 --> 00:02:36,642
+Which means Ibe wasn't trying to protect springs and gears.
+
+37
+00:02:36,642 --> 00:02:42,105
+A quartz module is tiny. Solid state. Ibe had a heart small enough to hide.
+
+38
+00:02:42,105 --> 00:02:44,800
+He just had no idea where to hide it.
+
+39
+00:02:45,800 --> 00:02:49,054
+So he started dropping them out of that window.
+
+40
+00:02:49,054 --> 00:02:54,455
+Over a hundred prototypes in the first year alone. Thicker case. Harder resin.
+
+41
+00:02:54,455 --> 00:02:58,886
+More padding, more bracing, more armour. Every single one broke.
+
+42
+00:02:58,886 --> 00:03:04,009
+And they all broke for the same reason — although nobody could see it yet.
+
+43
+00:03:04,009 --> 00:03:06,986
+Every prototype was built on the same idea.
+
+44
+00:03:06,986 --> 00:03:11,556
+That to survive a hit, a watch has to be strong enough to take it.
+
+45
+00:03:11,556 --> 00:03:14,810
+By his own account, Ibe was close to giving up.
+
+46
+00:03:15,810 --> 00:03:21,342
+Then he sat down in a park. There was a kid nearby, bouncing a rubber ball.
+
+47
+00:03:21,342 --> 00:03:25,178
+Ibe watched it. Hit the ground. Squash. Spring back.
+
+48
+00:03:25,178 --> 00:03:30,857
+And the middle of that ball barely moves. The outside takes the whole impact.
+
+49
+00:03:30,857 --> 00:03:32,554
+The centre just floats.
+
+50
+00:03:32,554 --> 00:03:37,127
+So he stopped trying to armour the watch, and hung it instead.
+
+51
+00:03:37,127 --> 00:03:40,815
+In a G-Shock, the module isn't bolted to the case.
+
+52
+00:03:40,815 --> 00:03:49,297
+It's suspended — held at a few points, cushioned, sitting inside a hollow shell that's allowed to squash around it.
+
+53
+00:03:49,297 --> 00:03:54,092
+The shock doesn't reach the watch. It gets used up on the way in.
+
+54
+00:03:54,092 --> 00:03:58,960
+Forty years later, that's still the trick inside every single one.
+
+55
+00:03:59,960 --> 00:04:05,253
+April 1983. The first one goes on sale. The DW-5000C. Square. Black.
+
+56
+00:04:05,253 --> 00:04:10,390
+Plastic-looking. And in 1983, a proper watch meant steel and thin.
+
+57
+00:04:10,390 --> 00:04:15,838
+Japan wasn't interested. And here's the answer to that first question.
+
+58
+00:04:15,838 --> 00:04:23,778
+Some of the resistance came from the shops themselves — and when you hear why, it makes perfect sense.
+
+59
+00:04:23,778 --> 00:04:29,226
+A watch that never breaks is a watch that never comes back for repair.
+
+60
+00:04:29,226 --> 00:04:34,986
+Durability wasn't a selling point. For part of the trade, it was bad news.
+
+61
+00:04:34,986 --> 00:04:39,423
+Ibe said later he was sure the sales would simply dry up.
+
+62
+00:04:39,423 --> 00:04:43,470
+That's the first time this watch nearly disappeared.
+
+63
+00:04:44,470 --> 00:04:47,541
+What saved it wasn't Japan. It was American TV.
+
+64
+00:04:47,541 --> 00:04:50,088
+Which brings us back to the rink. 1984.
+
+65
+00:04:50,088 --> 00:04:53,224
+Casio runs that commercial in the United States.
+
+66
+00:04:53,224 --> 00:04:57,863
+The slapshot, the watch as a puck — and nobody believes a second of it.
+
+67
+00:04:57,863 --> 00:05:02,762
+People assume Casio faked the whole thing, and honestly, why wouldn't they?
+
+68
+00:05:02,762 --> 00:05:06,617
+It looks exactly like something an ad agency would make up.
+
+69
+00:05:06,617 --> 00:05:10,798
+So a news programme did what no marketing budget could ever buy.
+
+70
+00:05:10,798 --> 00:05:15,045
+They ran the test themselves, on air. Same shot. Same conditions.
+
+71
+00:05:15,045 --> 00:05:19,160
+And the watch kept running. That's the moment everything turns.
+
+72
+00:05:19,160 --> 00:05:27,980
+Because you can build the toughest watch on earth and it's worth nothing — until somebody with no reason to lie shows people it's true.
+
+73
+00:05:28,980 --> 00:05:36,151
+After that, the G-Shock found the people who needed it before it found the people who wanted it.
+
+74
+00:05:36,151 --> 00:05:39,363
+Police. Firefighters. Rescue crews. Divers.
+
+75
+00:05:39,363 --> 00:05:43,472
+Anyone whose watch was equipment rather than jewellery.
+
+76
+00:05:43,472 --> 00:05:46,460
+And Casio did something rather charming.
+
+77
+00:05:46,460 --> 00:05:52,212
+Instead of one tough watch, it started building one for each kind of trouble.
+
+78
+00:05:52,212 --> 00:05:57,889
+Mud and dust in 1985 — later known as the Mudman. Then divers, pilots, cold.
+
+79
+00:05:57,889 --> 00:06:03,865
+In 1993 came the Frogman, the first one certified as a proper ISO diver's watch.
+
+80
+00:06:03,865 --> 00:06:07,974
+And in 1994, the one that defined the era. The DW-6600.
+
+81
+00:06:07,974 --> 00:06:13,651
+Cheap, light, two hundred metres down. It ended up all over the US military.
+
+82
+00:06:13,651 --> 00:06:19,254
+Including Navy SEALs, who show up wearing it in the Navy's own photographs.
+
+83
+00:06:19,254 --> 00:06:21,196
+Which is worth pausing on.
+
+84
+00:06:21,196 --> 00:06:26,575
+For decades, the watch on those wrists was an expensive mechanical tool.
+
+85
+00:06:26,575 --> 00:06:32,700
+It was quietly replaced by a plastic one that cost less than a good pair of boots.
+
+86
+00:06:33,700 --> 00:06:37,531
+Then something happened that Ibe never planned for.
+
+87
+00:06:37,531 --> 00:06:43,241
+In the nineties, people stopped buying G-Shocks for what they could survive.
+
+88
+00:06:43,241 --> 00:06:48,575
+They started buying them for what they said. Skaters. Surfers. Hip-hop.
+
+89
+00:06:48,575 --> 00:06:53,458
+That big, chunky case the Japanese shops had turned down in 1983?
+
+90
+00:06:53,458 --> 00:06:58,041
+It turned out to be exactly the right shape for the nineties.
+
+91
+00:06:58,041 --> 00:07:07,807
+In 1994 Casio launched Baby-G — the same floating idea, just smaller — and it became one of those things everybody's sister owned.
+
+92
+00:07:07,807 --> 00:07:13,441
+And this is the part that's easy to miss. The engineering earned the trust.
+
+93
+00:07:13,441 --> 00:07:16,672
+But it was culture that did the conquering.
+
+94
+00:07:16,672 --> 00:07:24,710
+The watch became a way of saying something about yourself, whether or not you ever went near a hockey rink.
+
+95
+00:07:25,710 --> 00:07:27,262
+How big did this get?
+
+96
+00:07:27,262 --> 00:07:32,214
+Casio says it shipped the hundred millionth G-Shock in August 2017.
+
+97
+00:07:32,214 --> 00:07:35,539
+They held a ceremony at the Yamagata factory.
+
+98
+00:07:35,539 --> 00:07:39,973
+That watch got a caseback engraved with one hundred million.
+
+99
+00:07:39,973 --> 00:07:50,320
+By the fortieth anniversary in 2023, Casio put the total above a hundred and forty million, sold in more than a hundred and forty countries.
+
+100
+00:07:50,320 --> 00:07:55,419
+Those are the company's own numbers. Here's one that isn't marketing.
+
+101
+00:07:55,419 --> 00:08:00,888
+In 2023, Casio got a three-dimensional trademark on the shape of the case.
+
+102
+00:08:00,888 --> 00:08:03,697
+Not the name. Not the logo. The shape.
+
+103
+00:08:03,697 --> 00:08:08,870
+A silhouette you can recognise without anybody telling you what it is.
+
+104
+00:08:09,870 --> 00:08:13,138
+One last thing. The G-Shock is not indestructible.
+
+105
+00:08:13,138 --> 00:08:16,341
+That word belongs to the adverts, not to physics.
+
+106
+00:08:16,341 --> 00:08:21,179
+Hit one hard enough, in the right place, and it breaks like anything else.
+
+107
+00:08:21,179 --> 00:08:25,951
+So what did Ibe actually invent? Not a stronger watch. A better question.
+
+108
+00:08:25,951 --> 00:08:30,984
+Everybody before him asked how to make a watch tough enough to survive a hit.
+
+109
+00:08:30,984 --> 00:08:34,122
+He asked how to stop the hit from ever arriving.
+
+110
+00:08:34,122 --> 00:08:40,462
+And the answer was to let the important part float — and let everything around it get sacrificed.
+
+111
+00:08:40,462 --> 00:08:45,626
+Which is a strange kind of monument to a watch that broke on a street in Tokyo.
+
+112
+00:08:45,626 --> 00:08:49,810
+Not a watch that couldn't be broken. A watch that refused to be.

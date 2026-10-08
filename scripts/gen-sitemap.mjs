@@ -1,9 +1,13 @@
 // Writes public/sitemap.xml from the watch catalogue so every listing URL is
 // discoverable. Each listing also declares its photographs, which is how the
-// watch photos get picked up for Google Images. Runs before each build.
-import { writeFile } from 'node:fs/promises';
+// watch photos get picked up for Google Images, and each /videos/<slug> page
+// declares its video (Google video sitemap extension). Runs before each build.
+import { readFile, writeFile } from 'node:fs/promises';
 import { watches } from '../src/data/watches.ts';
 import { RETURNS_PATH, SITE_URL } from '../src/lib/site.ts';
+import { embedUrl, thumbnailUrl, VIDEOS_PATH, videoUrl } from '../src/lib/video.ts';
+
+const videos = JSON.parse(await readFile('src/data/videos.json', 'utf8'));
 
 const today = new Date().toISOString().slice(0, 10);
 
@@ -20,11 +24,26 @@ const urls = [
       images: w.images.map((src) => ({ loc: `${SITE_URL}${src}`, title: w.name })),
     })),
   { loc: `${SITE_URL}${RETURNS_PATH}`, priority: '0.3', images: [] },
+  ...(videos.length > 0 ? [{ loc: `${SITE_URL}${VIDEOS_PATH}`, priority: '0.6', images: [] }] : []),
+  ...videos.map((v) => ({
+    loc: videoUrl(v),
+    priority: '0.5',
+    images: [],
+    video: {
+      thumbnail: thumbnailUrl(v, 'maxres'),
+      title: v.title,
+      description: v.summary.join(' ') || v.title,
+      player: embedUrl(v),
+      duration: v.durationSeconds,
+      published: v.uploadDate,
+    },
+  })),
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${urls
   .map((u) => {
     const images = u.images
@@ -35,7 +54,14 @@ ${urls
           )}</image:title>\n    </image:image>`
       )
       .join('');
-    return `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${u.priority}</priority>${images}\n  </url>`;
+    const video = u.video
+      ? `\n    <video:video>\n      <video:thumbnail_loc>${esc(u.video.thumbnail)}</video:thumbnail_loc>\n      <video:title>${esc(
+          u.video.title
+        )}</video:title>\n      <video:description>${esc(u.video.description.slice(0, 2048))}</video:description>\n      <video:player_loc>${esc(
+          u.video.player
+        )}</video:player_loc>\n      <video:duration>${u.video.duration}</video:duration>\n      <video:publication_date>${u.video.published}</video:publication_date>\n    </video:video>`
+      : '';
+    return `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${u.priority}</priority>${images}${video}\n  </url>`;
   })
   .join('\n')}
 </urlset>
@@ -43,5 +69,5 @@ ${urls
 
 await writeFile('public/sitemap.xml', xml, 'utf8');
 console.log(
-  `sitemap: ${urls.length} urls, ${urls.reduce((n, u) => n + u.images.length, 0)} images`
+  `sitemap: ${urls.length} urls, ${urls.reduce((n, u) => n + u.images.length, 0)} images, ${videos.length} videos`
 );

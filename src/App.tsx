@@ -6,6 +6,7 @@ import ProductGrid from './components/ProductGrid';
 import ProductModal from './components/ProductModal';
 import CheckoutNotice from './components/CheckoutNotice';
 import OurStory from './components/OurStory';
+import VideoSection from './components/VideoSection';
 import ShippingInfo from './components/ShippingInfo';
 import EbaySection from './components/EbaySection';
 import Footer from './components/Footer';
@@ -53,6 +54,7 @@ export default function App() {
         <Hero />
         <ProductGrid onOpen={openWatch} />
         <OurStory />
+        <VideoSection />
         <ShippingInfo />
         <EbaySection />
       </main>

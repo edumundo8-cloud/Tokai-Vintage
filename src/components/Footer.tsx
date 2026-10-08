@@ -1,4 +1,5 @@
 import { RETURNS_PATH } from '@/lib/site';
+import { VIDEOS_PATH } from '@/lib/video';
 
 export default function Footer() {
   return (
@@ -12,6 +13,7 @@ export default function Footer() {
         <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-xs uppercase tracking-[0.12em] text-ivory/65">
           <a href="#collection" className="hover:text-ivory">Collection</a>
           <a href="#our-story" className="hover:text-ivory">Our Story</a>
+          <a href={VIDEOS_PATH} className="hover:text-ivory">Videos</a>
           <a href="#shipping" className="hover:text-ivory">Shipping</a>
           <a href={RETURNS_PATH} className="hover:text-ivory">Returns</a>
           <a

@@ -1,0 +1,763 @@
+1
+00:00:00,000 --> 00:00:03,140
+A watch can survive a dive and still fail its diver.
+
+2
+00:00:03,940 --> 00:00:06,000
+If you cannot read it, what good is it?
+
+3
+00:00:06,780 --> 00:00:08,860
+Underwater, the task sounds simple.
+
+4
+00:00:09,540 --> 00:00:10,120
+Look at your wrist.
+
+5
+00:00:10,520 --> 00:00:11,500
+Find the minute hand.
+
+6
+00:00:12,060 --> 00:00:13,540
+Work out how long you have been down.
+
+7
+00:00:14,340 --> 00:00:17,820
+But light changes, your surroundings move, and a dial
+
+8
+00:00:17,820 --> 00:00:20,340
+designed for an office can become a puzzle.
+
+9
+00:00:21,240 --> 00:00:24,460
+The Rolex Submariner was built around that world: a watch
+
+10
+00:00:24,460 --> 00:00:27,700
+case that resisted water, a display that could be read
+
+11
+00:00:27,700 --> 00:00:31,100
+quickly, and a rotating ring that made elapsed time
+
+12
+00:00:31,100 --> 00:00:34,340
+visible. Those details eventually became a familiar
+
+13
+00:00:34,340 --> 00:00:35,880
+look far beyond diving.
+
+14
+00:00:36,860 --> 00:00:39,880
+How did a practical instrument acquire that kind of reach?
+
+15
+00:00:40,800 --> 00:00:43,020
+The answer begins with people learning to breathe
+
+16
+00:00:43,020 --> 00:00:46,220
+underwater. And later, it takes a surprising
+
+17
+00:00:46,220 --> 00:00:49,580
+detour to the deepest part of the ocean, where the
+
+18
+00:00:49,580 --> 00:00:52,840
+Rolex attached to a submarine was a very different watch.
+
+19
+00:00:54,720 --> 00:00:58,320
+In nineteen forty-three, French engineer Émile Gagnan and
+
+20
+00:00:58,320 --> 00:01:01,440
+naval officer Jacques-Yves Cousteau built an autonomous
+
+21
+00:01:01,440 --> 00:01:04,860
+compressed-air diving apparatus. The device became
+
+22
+00:01:04,860 --> 00:01:06,080
+known as the Aqua-Lung.
+
+23
+00:01:06,660 --> 00:01:09,920
+A diver could carry a supply of air and move without a
+
+24
+00:01:09,920 --> 00:01:11,720
+breathing hose running back to the surface.
+
+25
+00:01:12,640 --> 00:01:15,940
+That freedom opened possibilities for exploring, filming
+
+26
+00:01:15,940 --> 00:01:17,620
+and working below the waves.
+
+27
+00:01:18,500 --> 00:01:21,660
+During the following decade, scuba diving attracted a
+
+28
+00:01:21,660 --> 00:01:24,580
+wider public. More people were preparing equipment,
+
+29
+00:01:25,000 --> 00:01:27,580
+boarding boats and discovering a landscape they had
+
+30
+00:01:27,580 --> 00:01:28,840
+previously seen from above.
+
+31
+00:01:29,720 --> 00:01:31,800
+Taking a watch along made practical sense.
+
+32
+00:01:32,640 --> 00:01:34,760
+It supplied a reference for how much time had passed,
+
+33
+00:01:35,360 --> 00:01:37,480
+something a written plan could not show on its own.
+
+34
+00:01:38,260 --> 00:01:40,080
+But a watch was one part of the equipment.
+
+35
+00:01:40,940 --> 00:01:43,560
+Its hands could not report how much air remained in a
+
+36
+00:01:43,560 --> 00:01:47,020
+cylinder. For the watch itself to be useful, its mechanism
+
+37
+00:01:47,020 --> 00:01:49,760
+had to survive the place where its owner wanted to use it.
+
+38
+00:01:51,520 --> 00:01:54,080
+Every ten metres of descent adds roughly another
+
+39
+00:01:54,080 --> 00:01:57,620
+atmosphere of pressure. The farther down an object
+
+40
+00:01:57,620 --> 00:02:00,700
+goes, the more strongly the surrounding water presses
+
+41
+00:02:00,700 --> 00:02:04,240
+against it. For a wristwatch, that turns small
+
+42
+00:02:04,240 --> 00:02:06,520
+openings into serious design problems.
+
+43
+00:02:07,460 --> 00:02:11,140
+A crown has to move so the owner can set the hands, yet
+
+44
+00:02:11,140 --> 00:02:13,860
+the case around it must keep water away from the
+
+45
+00:02:13,860 --> 00:02:16,660
+mechanism. Rolex already had a foundation.
+
+46
+00:02:17,500 --> 00:02:20,720
+Its Oyster case dated to nineteen twenty-six, using a
+
+47
+00:02:20,720 --> 00:02:22,660
+sealed construction to protect the movement.
+
+48
+00:02:23,740 --> 00:02:26,800
+Developing a diving watch meant taking that idea into a
+
+49
+00:02:26,800 --> 00:02:29,880
+more demanding environment. According to Rolex,
+
+50
+00:02:30,420 --> 00:02:33,940
+Royal Navy divers tested Oyster Perpetual watches during
+
+51
+00:02:33,940 --> 00:02:37,460
+exercises from HMS Reclaim in Scotland's Loch Fyne
+
+52
+00:02:37,460 --> 00:02:40,780
+in nineteen fifty-two. The brand records
+
+53
+00:02:40,780 --> 00:02:42,620
+depths of up to seventy-three metres.
+
+54
+00:02:43,540 --> 00:02:45,840
+That account describes watches working underwater.
+
+55
+00:02:47,060 --> 00:02:49,400
+The next question was how to build their use into the
+
+56
+00:02:49,400 --> 00:02:49,620
+design.
+
+57
+00:02:51,600 --> 00:02:54,020
+Rolex dates the launch of the Submariner to nineteen
+
+58
+00:02:54,020 --> 00:02:57,340
+fifty-three. Its initial water-resistance rating
+
+59
+00:02:57,340 --> 00:03:00,900
+was one hundred metres, and its screw-down crown
+
+60
+00:03:00,900 --> 00:03:03,220
+used the Twinlock sealing system.
+
+61
+00:03:04,120 --> 00:03:07,120
+The new watch brought its underwater purpose onto the
+
+62
+00:03:07,120 --> 00:03:10,800
+wrist: a clear dial, prominent hands and a rotating
+
+63
+00:03:10,800 --> 00:03:12,140
+scale around the face.
+
+64
+00:03:12,880 --> 00:03:15,200
+You could look at it and see what it was meant to do.
+
+65
+00:03:15,900 --> 00:03:18,040
+There were other designers pursuing that purpose.
+
+66
+00:03:19,080 --> 00:03:21,500
+Blancpain dates its Fifty Fathoms to the same year.
+
+67
+00:03:22,200 --> 00:03:24,600
+Several companies were shaping the equipment that would
+
+68
+00:03:24,600 --> 00:03:25,780
+become familiar to divers.
+
+69
+00:03:26,780 --> 00:03:29,820
+A claim about being first can overshadow the more useful
+
+70
+00:03:29,820 --> 00:03:33,260
+question: did the design work well for the person using
+
+71
+00:03:33,260 --> 00:03:36,500
+it? A depth rating answered something about the case.
+
+72
+00:03:37,260 --> 00:03:39,200
+It did not answer everything about the display.
+
+73
+00:03:40,040 --> 00:03:43,360
+For that, Rolex's own account points to an engineer who
+
+74
+00:03:43,360 --> 00:03:44,760
+spent time below the surface.
+
+75
+00:03:46,720 --> 00:03:50,160
+Dimitri Rebikoff was an engineer, diver and
+
+76
+00:03:50,160 --> 00:03:53,780
+underwater photographer. According to Rolex, his
+
+77
+00:03:53,780 --> 00:03:57,000
+feedback followed one hundred and thirty-two dives at
+
+78
+00:03:57,000 --> 00:03:59,560
+depths between twelve and sixty metres.
+
+79
+00:04:00,480 --> 00:04:02,980
+One recommendation concerned a tiny triangle.
+
+80
+00:04:04,020 --> 00:04:06,120
+The marker on the rotating bezel was red.
+
+81
+00:04:06,920 --> 00:04:10,080
+Rebikoff suggested making it white to improve legibility.
+
+82
+00:04:11,120 --> 00:04:13,760
+There is a reason colour behaves differently down there.
+
+83
+00:04:14,420 --> 00:04:17,640
+Water filters light as depth increases, and red
+
+84
+00:04:17,640 --> 00:04:19,820
+wavelengths disappear more quickly than blue.
+
+85
+00:04:20,720 --> 00:04:22,900
+The appearance of an object depends on the light available
+
+86
+00:04:22,900 --> 00:04:24,160
+to reflect from it.
+
+87
+00:04:24,920 --> 00:04:27,840
+The important detail in Rolex's account is the feedback
+
+88
+00:04:27,840 --> 00:04:31,400
+itself. Someone used the watch in the environment it
+
+89
+00:04:31,400 --> 00:04:34,840
+was designed for, then suggested a change to what the
+
+90
+00:04:34,840 --> 00:04:38,420
+diver actually saw. A small marker could carry a
+
+91
+00:04:38,420 --> 00:04:41,760
+large responsibility: letting the wearer find the starting
+
+92
+00:04:41,760 --> 00:04:44,900
+point quickly. Once that starting point was clear,
+
+93
+00:04:45,500 --> 00:04:47,280
+the rotating scale could do its work.
+
+94
+00:04:49,120 --> 00:04:51,580
+Picture a simplified modern dive-watch dial.
+
+95
+00:04:52,420 --> 00:04:54,640
+The minute hand points to twenty past the hour.
+
+96
+00:04:55,520 --> 00:04:59,020
+Rotate the bezel until its zero marker lines up with that
+
+97
+00:04:59,020 --> 00:05:01,300
+hand. Now let the hand move.
+
+98
+00:05:02,100 --> 00:05:03,560
+The bezel stays where you set it.
+
+99
+00:05:04,240 --> 00:05:07,220
+Its scale shows how many minutes have passed since that
+
+100
+00:05:07,220 --> 00:05:10,880
+starting point. That is the basic idea of the Submariner's
+
+101
+00:05:10,880 --> 00:05:14,280
+elapsed-time bezel. A movable reference sits
+
+102
+00:05:14,280 --> 00:05:17,580
+beside a moving hand, so the wearer can read the interval
+
+103
+00:05:17,580 --> 00:05:21,200
+directly. On today's Submariner, the bezel turns
+
+104
+00:05:21,200 --> 00:05:24,120
+only counterclockwise. If it shifts accidentally,
+
+105
+00:05:24,960 --> 00:05:28,360
+the indication moves toward more elapsed time, rather than
+
+106
+00:05:28,360 --> 00:05:31,600
+less. The design makes that particular error conservative.
+
+107
+00:05:32,640 --> 00:05:33,520
+This is a time display.
+
+108
+00:05:34,360 --> 00:05:37,620
+It does not measure air supply, choose a safe depth or
+
+109
+00:05:37,620 --> 00:05:39,260
+calculate a complete dive plan.
+
+110
+00:05:40,100 --> 00:05:42,440
+But it makes one piece of information easier to read.
+
+111
+00:05:42,440 --> 00:05:45,600
+The next challenge was keeping that information available
+
+112
+00:05:45,600 --> 00:05:47,340
+as the watch itself evolved.
+
+113
+00:05:49,440 --> 00:05:52,380
+Rolex reports that the Submariner's rating reached two
+
+114
+00:05:52,380 --> 00:05:54,540
+hundred metres within a year of launch.
+
+115
+00:05:55,600 --> 00:05:57,660
+Later changes arrived along different paths.
+
+116
+00:05:58,640 --> 00:06:01,060
+The Submariner Date appeared in nineteen sixty-nine.
+
+117
+00:06:01,760 --> 00:06:04,840
+Its rating increased to three hundred metres in nineteen
+
+118
+00:06:04,840 --> 00:06:08,500
+seventy-nine. The model without a date reached that
+
+119
+00:06:08,500 --> 00:06:10,000
+rating in nineteen eighty-nine.
+
+120
+00:06:10,500 --> 00:06:13,520
+Those dates matter because a familiar name can hide
+
+121
+00:06:13,520 --> 00:06:15,000
+several generations of design.
+
+122
+00:06:15,840 --> 00:06:18,720
+A feature on today's watch cannot simply be assigned to
+
+123
+00:06:18,720 --> 00:06:22,040
+the original. The numbers also describe the watch's water
+
+124
+00:06:22,040 --> 00:06:24,920
+resistance. They are not instructions for how deep its
+
+125
+00:06:24,920 --> 00:06:28,100
+owner should go. A useful way to read the progression
+
+126
+00:06:28,100 --> 00:06:31,560
+is as a history of the object: its case, seals
+
+127
+00:06:31,560 --> 00:06:35,120
+and display developed while its basic purpose remained
+
+128
+00:06:35,120 --> 00:06:38,280
+easy to recognise. Yet Rolex's most
+
+129
+00:06:38,280 --> 00:06:41,700
+dramatic ocean story took the brand far beyond those
+
+130
+00:06:41,700 --> 00:06:45,120
+ratings. And it can lead people to mix up two very
+
+131
+00:06:45,120 --> 00:06:45,760
+different objects.
+
+132
+00:06:47,760 --> 00:06:51,400
+On January twenty-third, nineteen sixty, Jacques Piccard
+
+133
+00:06:51,400 --> 00:06:54,580
+and U.S. Navy Lieutenant Don Walsh descended
+
+134
+00:06:54,580 --> 00:06:58,200
+aboard the bathyscaphe Trieste to Challenger Deep
+
+135
+00:06:58,200 --> 00:07:01,860
+in the Mariana Trench, nearly eleven kilometres below
+
+136
+00:07:01,860 --> 00:07:05,500
+the surface. A Rolex watch travelled on the outside
+
+137
+00:07:05,500 --> 00:07:09,180
+of the vessel. Rolex identifies it as the Deep
+
+138
+00:07:09,180 --> 00:07:12,680
+Sea Special, an experimental model designed for
+
+139
+00:07:12,680 --> 00:07:16,020
+enormous pressure. That distinction is essential
+
+140
+00:07:16,020 --> 00:07:17,660
+to the Submariner's story.
+
+141
+00:07:17,660 --> 00:07:21,280
+The watch mounted outside the Trieste was
+
+142
+00:07:21,280 --> 00:07:22,460
+the Deep Sea Special.
+
+143
+00:07:23,380 --> 00:07:26,040
+The dramatic expedition does not establish an
+
+144
+00:07:26,040 --> 00:07:29,240
+eleven-kilometre rating for a Submariner on someone's
+
+145
+00:07:29,240 --> 00:07:32,340
+wrist. The two objects show different ambitions
+
+146
+00:07:32,340 --> 00:07:36,000
+within the same company's ocean work: an experimental
+
+147
+00:07:36,000 --> 00:07:39,680
+instrument facing extreme depth, and a wristwatch
+
+148
+00:07:39,680 --> 00:07:41,360
+designed for use by divers.
+
+149
+00:07:42,280 --> 00:07:44,700
+The title's real question comes back here.
+
+150
+00:07:44,700 --> 00:07:47,400
+How did the Submariner conquer the deep?
+
+151
+00:07:48,580 --> 00:07:51,520
+Its answer lies in making a useful wrist instrument,
+
+152
+00:07:52,200 --> 00:07:54,880
+while specialised challenges continued to produce
+
+153
+00:07:54,880 --> 00:07:56,220
+specialised watches.
+
+154
+00:07:58,320 --> 00:08:01,000
+The Sea-Dweller, introduced in nineteen sixty-seven,
+
+155
+00:08:01,460 --> 00:08:03,660
+addressed another requirement of professional diving.
+
+156
+00:08:04,560 --> 00:08:08,020
+In saturation diving, divers spend extended periods in
+
+157
+00:08:08,020 --> 00:08:11,540
+pressurised environments using breathing mixtures that can
+
+158
+00:08:11,540 --> 00:08:14,740
+include helium. Helium can enter a watch case.
+
+159
+00:08:15,520 --> 00:08:17,820
+When the surrounding pressure falls during decompression,
+
+160
+00:08:18,240 --> 00:08:21,140
+gas trapped inside can create a damaging pressure
+
+161
+00:08:21,140 --> 00:08:24,360
+difference. Rolex's helium escape valve
+
+162
+00:08:24,360 --> 00:08:26,600
+let that excess gas leave the case.
+
+163
+00:08:26,600 --> 00:08:30,260
+It was a response to the conditions of a particular kind
+
+164
+00:08:30,260 --> 00:08:33,860
+of work. The broader lesson is that diving equipment
+
+165
+00:08:33,860 --> 00:08:35,380
+developed through specific problems.
+
+166
+00:08:36,300 --> 00:08:38,580
+One situation demanded a readable time scale.
+
+167
+00:08:39,140 --> 00:08:42,400
+Another demanded a way to release internal gas pressure.
+
+168
+00:08:43,240 --> 00:08:45,920
+Those solutions should not be folded into a single
+
+169
+00:08:45,920 --> 00:08:47,740
+legendary watch with every capability.
+
+170
+00:08:48,880 --> 00:08:51,340
+The Submariner already had a clear purpose of its own.
+
+171
+00:08:52,100 --> 00:08:54,380
+Then its appearance began reaching people who might never
+
+172
+00:08:54,380 --> 00:08:56,240
+have a reason to descend below the surface.
+
+173
+00:08:58,240 --> 00:09:01,640
+In nineteen sixty-two, Sean Connery wore a Submariner in
+
+174
+00:09:01,640 --> 00:09:02,760
+the first James Bond film.
+
+175
+00:09:03,660 --> 00:09:06,600
+The watch's recognisable design could now reach a cinema
+
+176
+00:09:06,600 --> 00:09:09,980
+audience as part of a character associated with danger
+
+177
+00:09:09,980 --> 00:09:13,500
+and confidence. That connection helps explain its cultural
+
+178
+00:09:13,500 --> 00:09:17,080
+life. A practical object can become a symbol when
+
+179
+00:09:17,080 --> 00:09:19,820
+people recognise the activities and characters attached to
+
+180
+00:09:19,820 --> 00:09:22,320
+it. But return to the diver from the opening.
+
+181
+00:09:23,220 --> 00:09:25,620
+The useful question is still whether the wearer can find
+
+182
+00:09:25,620 --> 00:09:28,580
+the hand, see the marker and read the interval.
+
+183
+00:09:29,560 --> 00:09:32,880
+The Submariner's story connects those small acts to a much
+
+184
+00:09:32,880 --> 00:09:36,180
+wider world: the growth of scuba, feedback
+
+185
+00:09:36,180 --> 00:09:39,840
+from underwater use, changing case designs and the
+
+186
+00:09:39,840 --> 00:09:43,360
+reach of cinema. Its conquest of the deep is a
+
+187
+00:09:43,360 --> 00:09:46,680
+story of adaptation. A familiar shape carried the evidence
+
+188
+00:09:46,680 --> 00:09:48,960
+of the job it had been designed to do.
+
+189
+00:09:49,720 --> 00:09:51,560
+Water-resistant enough to keep ticking.
+
+190
+00:09:51,560 --> 00:09:53,340
+Clear enough to be read.
+
+191
+00:09:54,320 --> 00:09:56,800
+Recognisable long after the diver returned to the surface.

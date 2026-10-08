@@ -1,0 +1,1280 @@
+1
+00:00:00,000 --> 00:00:01,000
+The engine has to burn
+
+2
+00:00:01,020 --> 00:00:02,530
+for about fifteen seconds.
+
+3
+00:00:03,420 --> 00:00:04,630
+The computer is off.
+
+4
+00:00:05,540 --> 00:00:07,000
+And three astronauts are trying
+
+5
+00:00:07,020 --> 00:00:08,620
+to steer a damaged spacecraft
+
+6
+00:00:08,640 --> 00:00:10,070
+back to Earth.
+
+7
+00:00:10,520 --> 00:00:11,440
+Jim Lovell looks out the
+
+8
+00:00:11,460 --> 00:00:12,440
+window to keep the planet
+
+9
+00:00:12,460 --> 00:00:13,110
+in view.
+
+10
+00:00:13,940 --> 00:00:14,580
+The men have been awake
+
+11
+00:00:14,600 --> 00:00:16,060
+too long, the cabin is
+
+12
+00:00:16,080 --> 00:00:16,470
+cold,
+
+13
+00:00:16,960 --> 00:00:18,100
+and every remaining bit of
+
+14
+00:00:18,120 --> 00:00:18,850
+power matters.
+
+15
+00:00:19,740 --> 00:00:21,100
+Somewhere on board is a
+
+16
+00:00:21,120 --> 00:00:22,780
+small, old-fashioned answer to
+
+17
+00:00:22,800 --> 00:00:24,230
+one urgent question:
+
+18
+00:00:25,000 --> 00:00:25,860
+when do we shut the
+
+19
+00:00:25,880 --> 00:00:28,220
+engine off? The answer is
+
+20
+00:00:28,240 --> 00:00:29,010
+a wristwatch.
+
+21
+00:00:29,480 --> 00:00:31,030
+A mechanical chronograph.
+
+22
+00:00:31,760 --> 00:00:32,980
+Jack Swigert has one on
+
+23
+00:00:33,000 --> 00:00:34,300
+his wrist, and the Science
+
+24
+00:00:34,320 --> 00:00:36,380
+Museum credits his watch with
+
+25
+00:00:36,400 --> 00:00:38,600
+timing crucial engine firings
+
+26
+00:00:38,620 --> 00:00:40,330
+during Apollo 13.
+
+27
+00:00:40,740 --> 00:00:41,920
+How did a watch end
+
+28
+00:00:41,940 --> 00:00:42,840
+up with a job on
+
+29
+00:00:42,860 --> 00:00:43,730
+a trip to the Moon?
+
+30
+00:00:44,600 --> 00:00:45,700
+And why would NASA trust
+
+31
+00:00:45,720 --> 00:00:47,460
+it when the spacecraft itself
+
+32
+00:00:47,480 --> 00:00:48,370
+was in trouble?
+
+33
+00:00:49,280 --> 00:00:50,490
+In an Apollo photograph,
+
+34
+00:00:50,920 --> 00:00:52,240
+almost everything looks
+
+35
+00:00:52,260 --> 00:00:53,810
+specially built for space.
+
+36
+00:00:54,540 --> 00:00:55,970
+The suit. The helmet.
+
+37
+00:00:56,340 --> 00:00:57,790
+The spacecraft behind it.
+
+38
+00:00:58,440 --> 00:00:59,450
+Then there is the watch:
+
+39
+00:00:59,940 --> 00:01:01,240
+a dial, a couple of
+
+40
+00:01:01,260 --> 00:01:01,590
+buttons,
+
+41
+00:01:02,020 --> 00:01:03,040
+and a strap over the
+
+42
+00:01:03,060 --> 00:01:03,390
+sleeve.
+
+43
+00:01:04,380 --> 00:01:05,570
+is an Omega Speedmaster.
+
+44
+00:01:06,360 --> 00:01:07,680
+A chronograph is a stopwatch
+
+45
+00:01:07,700 --> 00:01:08,430
+you can wear.
+
+46
+00:01:08,920 --> 00:01:10,340
+Press one button and a
+
+47
+00:01:10,360 --> 00:01:11,850
+hand starts counting seconds.
+
+48
+00:01:12,580 --> 00:01:13,820
+Press it again and it
+
+49
+00:01:13,840 --> 00:01:14,190
+stops.
+
+50
+00:01:14,700 --> 00:01:16,040
+That matters when a task
+
+51
+00:01:16,060 --> 00:01:17,740
+must last a precise number
+
+52
+00:01:17,760 --> 00:01:18,350
+of seconds:
+
+53
+00:01:18,780 --> 00:01:19,370
+an experiment,
+
+54
+00:01:19,860 --> 00:01:21,640
+a maneuver, a stretch outside
+
+55
+00:01:21,660 --> 00:01:22,450
+the spacecraft.
+
+56
+00:01:23,500 --> 00:01:24,980
+The Speedmaster does not need
+
+57
+00:01:25,000 --> 00:01:26,400
+the ship's electricity to do
+
+58
+00:01:26,420 --> 00:01:26,990
+that job.
+
+59
+00:01:27,460 --> 00:01:28,690
+You wind it by hand.
+
+60
+00:01:29,460 --> 00:01:30,380
+The watch is not smarter
+
+61
+00:01:30,400 --> 00:01:31,210
+than the spacecraft.
+
+62
+00:01:31,980 --> 00:01:33,390
+It has one simple advantage:
+
+63
+00:01:34,080 --> 00:01:35,180
+it keeps doing its job
+
+64
+00:01:35,200 --> 00:01:36,740
+when another system has to
+
+65
+00:01:36,760 --> 00:01:37,530
+be switched off.
+
+66
+00:01:38,220 --> 00:01:39,580
+That was useful long before
+
+67
+00:01:39,600 --> 00:01:40,610
+Apollo 13.
+
+68
+00:01:41,080 --> 00:01:42,320
+But first the watch had
+
+69
+00:01:42,340 --> 00:01:43,900
+to persuade NASA that it
+
+70
+00:01:43,920 --> 00:01:44,950
+belonged there at all.
+
+71
+00:01:45,920 --> 00:01:47,500
+Imagine buying a watch and
+
+72
+00:01:47,520 --> 00:01:48,900
+asking the salesperson a few
+
+73
+00:01:48,920 --> 00:01:49,410
+questions.
+
+74
+00:01:50,260 --> 00:01:51,190
+Will it survive water?
+
+75
+00:01:51,560 --> 00:01:52,270
+A hard knock?
+
+76
+00:01:52,680 --> 00:01:53,410
+Magnetism?
+
+77
+00:01:53,920 --> 00:01:56,080
+Now add violent acceleration and
+
+78
+00:01:56,100 --> 00:01:57,200
+temperatures that would make an
+
+79
+00:01:57,220 --> 00:01:58,800
+ordinary day feel very far
+
+80
+00:01:58,820 --> 00:01:59,290
+away.
+
+81
+00:02:00,160 --> 00:02:00,820
+That was the sort of
+
+82
+00:02:00,840 --> 00:02:02,120
+list NASA brought to its
+
+83
+00:02:02,140 --> 00:02:03,790
+search for a crew chronograph.
+
+84
+00:02:04,120 --> 00:02:05,600
+NASA tested watches for
+
+85
+00:02:05,620 --> 00:02:06,770
+precision and reliability.
+
+86
+00:02:07,780 --> 00:02:08,980
+The Speedmaster made the cut
+
+87
+00:02:09,000 --> 00:02:10,780
+and was qualified for crewed
+
+88
+00:02:10,800 --> 00:02:12,270
+spaceflight in 1965.
+
+89
+00:02:12,980 --> 00:02:13,870
+By Apollo,
+
+90
+00:02:14,460 --> 00:02:15,740
+it was mission equipment rather
+
+91
+00:02:15,760 --> 00:02:17,550
+than a lucky personal accessory.
+
+92
+00:02:18,140 --> 00:02:18,920
+The choice had a quiet
+
+93
+00:02:18,940 --> 00:02:19,610
+logic.
+
+94
+00:02:20,420 --> 00:02:21,500
+A watch could travel with
+
+95
+00:02:21,520 --> 00:02:22,010
+an astronaut,
+
+96
+00:02:22,500 --> 00:02:23,970
+work inside or outside,
+
+97
+00:02:24,400 --> 00:02:25,520
+and measure an interval without
+
+98
+00:02:25,540 --> 00:02:27,310
+asking the spacecraft for power.
+
+99
+00:02:28,040 --> 00:02:29,110
+You can call that redundancy.
+
+100
+00:02:30,380 --> 00:02:30,880
+In the middle of a
+
+101
+00:02:30,900 --> 00:02:32,500
+crisis, it feels more like
+
+102
+00:02:32,520 --> 00:02:34,010
+having one extra chance.
+
+103
+00:02:34,800 --> 00:02:36,140
+When Apollo 11 landed on
+
+104
+00:02:36,160 --> 00:02:36,650
+the Moon,
+
+105
+00:02:37,140 --> 00:02:38,440
+Neil Armstrong faced a strange
+
+106
+00:02:38,460 --> 00:02:39,090
+choice:
+
+107
+00:02:39,680 --> 00:02:41,760
+take his Speedmaster outside, or
+
+108
+00:02:41,780 --> 00:02:42,480
+leave it in the lunar
+
+109
+00:02:42,500 --> 00:02:43,010
+module.
+
+110
+00:02:43,740 --> 00:02:44,570
+He left it inside.
+
+111
+00:02:45,420 --> 00:02:46,540
+The module's timer had caused
+
+112
+00:02:46,560 --> 00:02:48,140
+trouble, and a watch could
+
+113
+00:02:48,160 --> 00:02:49,760
+serve as a backup while
+
+114
+00:02:49,780 --> 00:02:51,140
+Buzz Aldrin took his own
+
+115
+00:02:51,160 --> 00:02:52,130
+onto the surface.
+
+116
+00:02:52,920 --> 00:02:53,700
+That is how the astronauts
+
+117
+00:02:53,720 --> 00:02:55,410
+later remembered the decision.
+
+118
+00:02:56,380 --> 00:02:57,240
+The man to step onto
+
+119
+00:02:57,260 --> 00:02:58,400
+the Moon left his watch
+
+120
+00:02:58,420 --> 00:02:58,850
+indoors.
+
+121
+00:02:59,780 --> 00:03:01,100
+The famous photograph was less
+
+122
+00:03:01,120 --> 00:03:02,740
+important than having a way
+
+123
+00:03:02,760 --> 00:03:04,060
+to keep time inside the
+
+124
+00:03:04,080 --> 00:03:04,670
+lander.
+
+125
+00:03:05,520 --> 00:03:06,780
+The Speedmaster earned its
+
+126
+00:03:06,800 --> 00:03:07,990
+nickname on the Moon.
+
+127
+00:03:08,720 --> 00:03:09,700
+The next chapter would show
+
+128
+00:03:09,720 --> 00:03:10,870
+a different side of it.
+
+129
+00:03:11,480 --> 00:03:12,580
+A mission that never reached
+
+130
+00:03:12,600 --> 00:03:14,200
+the lunar surface would need
+
+131
+00:03:14,220 --> 00:03:15,690
+every backup it had.
+
+132
+00:03:16,480 --> 00:03:17,800
+Apollo 13 had a landing
+
+133
+00:03:17,820 --> 00:03:19,000
+site and a crew of
+
+134
+00:03:19,020 --> 00:03:19,390
+three.
+
+135
+00:03:20,160 --> 00:03:21,310
+Jim Lovell was the commander.
+
+136
+00:03:22,060 --> 00:03:23,100
+Fred Haise was the lunar
+
+137
+00:03:23,120 --> 00:03:23,890
+module pilot.
+
+138
+00:03:24,760 --> 00:03:25,900
+Jack Swigert joined at the
+
+139
+00:03:25,920 --> 00:03:27,560
+last minute, replacing Ken
+
+140
+00:03:27,580 --> 00:03:29,370
+Mattingly after a measles scare.
+
+141
+00:03:30,580 --> 00:03:31,910
+Swigert wore a Speedmaster.
+
+142
+00:03:32,640 --> 00:03:33,640
+His flight watch is now
+
+143
+00:03:33,660 --> 00:03:34,950
+in the Smithsonian collection.
+
+144
+00:03:35,900 --> 00:03:36,640
+It was a small part
+
+145
+00:03:36,660 --> 00:03:37,720
+of the equipment on board
+
+146
+00:03:37,740 --> 00:03:38,870
+and, at first,
+
+147
+00:03:39,300 --> 00:03:40,500
+hardly the most exciting thing
+
+148
+00:03:40,520 --> 00:03:41,030
+to watch.
+
+149
+00:03:41,960 --> 00:03:43,800
+For nearly two days, the
+
+150
+00:03:43,820 --> 00:03:45,100
+flight was routine enough that
+
+151
+00:03:45,120 --> 00:03:46,720
+a controller in Houston joked
+
+152
+00:03:46,740 --> 00:03:47,730
+they were bored.
+
+153
+00:03:48,560 --> 00:03:49,560
+Then the crew finished a
+
+154
+00:03:49,580 --> 00:03:50,550
+television broadcast.
+
+155
+00:03:51,280 --> 00:03:52,920
+Nine minutes later, an oxygen
+
+156
+00:03:52,940 --> 00:03:53,930
+tank exploded.
+
+157
+00:03:54,740 --> 00:03:56,110
+A bang shook the spacecraft.
+
+158
+00:03:56,840 --> 00:03:57,710
+Alarms followed.
+
+159
+00:03:58,580 --> 00:03:59,880
+Within hours, the Moon landing
+
+160
+00:03:59,900 --> 00:04:00,570
+was gone.
+
+161
+00:04:01,340 --> 00:04:02,260
+The new mission was simpler
+
+162
+00:04:02,280 --> 00:04:03,820
+to say and much harder
+
+163
+00:04:03,840 --> 00:04:04,390
+to do:
+
+164
+00:04:05,080 --> 00:04:06,390
+bring all three men home.
+
+165
+00:04:07,120 --> 00:04:08,660
+The command module lost its
+
+166
+00:04:08,680 --> 00:04:10,010
+normal supply of electricity,
+
+167
+00:04:10,580 --> 00:04:11,550
+light and water.
+
+168
+00:04:12,280 --> 00:04:13,640
+Imagine your house suddenly
+
+169
+00:04:13,660 --> 00:04:14,790
+losing all three,
+
+170
+00:04:15,280 --> 00:04:16,660
+then remember that this house
+
+171
+00:04:16,680 --> 00:04:17,930
+is moving through space.
+
+172
+00:04:18,900 --> 00:04:20,580
+crew moved into the lunar
+
+173
+00:04:20,600 --> 00:04:21,050
+module,
+
+174
+00:04:21,580 --> 00:04:22,680
+a machine built to carry
+
+175
+00:04:22,700 --> 00:04:23,800
+two people down to the
+
+176
+00:04:23,820 --> 00:04:24,470
+Moon and back.
+
+177
+00:04:25,120 --> 00:04:26,220
+Now it had to keep
+
+178
+00:04:26,240 --> 00:04:27,720
+three people alive long enough
+
+179
+00:04:27,740 --> 00:04:28,810
+to return to Earth.
+
+180
+00:04:29,720 --> 00:04:30,530
+At Mission Control,
+
+181
+00:04:31,000 --> 00:04:32,340
+teams wrote and tested new
+
+182
+00:04:32,360 --> 00:04:32,890
+procedures
+
+183
+00:04:33,480 --> 00:04:34,620
+while the astronauts dealt with
+
+184
+00:04:34,640 --> 00:04:36,750
+a cold cabin, dwindling water
+
+185
+00:04:37,240 --> 00:04:38,420
+and an air system that
+
+186
+00:04:38,440 --> 00:04:40,050
+needed an improvised fix.
+
+187
+00:04:41,380 --> 00:04:42,700
+The watch cannot clean the
+
+188
+00:04:42,720 --> 00:04:44,680
+air or tell Houston where
+
+189
+00:04:44,700 --> 00:04:45,790
+the spacecraft is.
+
+190
+00:04:46,280 --> 00:04:47,340
+But the rescue is made
+
+191
+00:04:47,360 --> 00:04:48,730
+of hundreds of small jobs.
+
+192
+00:04:49,560 --> 00:04:50,740
+Some require a room full
+
+193
+00:04:50,760 --> 00:04:51,230
+of engineers.
+
+194
+00:04:52,120 --> 00:04:53,460
+Others require someone to count
+
+195
+00:04:53,480 --> 00:04:55,280
+seconds accurately while the
+
+196
+00:04:55,300 --> 00:04:56,050
+engines run.
+
+197
+00:04:56,940 --> 00:04:58,120
+First, the crew had to
+
+198
+00:04:58,140 --> 00:04:59,140
+get back onto a path
+
+199
+00:04:59,160 --> 00:05:00,940
+around the Moon and toward
+
+200
+00:05:00,960 --> 00:05:01,550
+Earth.
+
+201
+00:05:02,280 --> 00:05:03,820
+They fired the lunar module's
+
+202
+00:05:03,840 --> 00:05:04,170
+engine.
+
+203
+00:05:05,000 --> 00:05:06,880
+Later, after swinging past the
+
+204
+00:05:06,900 --> 00:05:08,500
+far side, they fired it
+
+205
+00:05:08,520 --> 00:05:09,910
+again to shorten the journey
+
+206
+00:05:10,180 --> 00:05:11,440
+and change where they would
+
+207
+00:05:11,460 --> 00:05:11,830
+land.
+
+208
+00:05:12,740 --> 00:05:14,480
+Each maneuver bought them a
+
+209
+00:05:14,500 --> 00:05:15,150
+better chance.
+
+210
+00:05:15,600 --> 00:05:16,500
+But they still had to
+
+211
+00:05:16,520 --> 00:05:17,720
+arrive at Earth at the
+
+212
+00:05:17,740 --> 00:05:18,670
+right angle.
+
+213
+00:05:19,480 --> 00:05:20,820
+Too shallow and the craft
+
+214
+00:05:20,840 --> 00:05:21,890
+could skip away.
+
+215
+00:05:22,560 --> 00:05:24,200
+Too steep and reentry would
+
+216
+00:05:24,220 --> 00:05:25,820
+become dangerous. Their
+
+217
+00:05:25,840 --> 00:05:28,360
+remaining power and water were
+
+218
+00:05:28,380 --> 00:05:29,720
+too precious to use the
+
+219
+00:05:29,740 --> 00:05:31,400
+lunar module's computer for
+
+220
+00:05:31,420 --> 00:05:32,250
+every task.
+
+221
+00:05:32,780 --> 00:05:34,490
+For one final short correction,
+
+222
+00:05:35,000 --> 00:05:36,170
+NASA had another plan.
+
+223
+00:05:36,820 --> 00:05:37,840
+The men would aim by
+
+224
+00:05:37,860 --> 00:05:38,920
+looking at Earth and the
+
+225
+00:05:38,940 --> 00:05:40,030
+Sun through the windows,
+
+226
+00:05:40,620 --> 00:05:41,850
+fire the engine by hand,
+
+227
+00:05:42,340 --> 00:05:43,120
+and stop it at the
+
+228
+00:05:43,140 --> 00:05:43,830
+right second.
+
+229
+00:05:44,600 --> 00:05:47,400
+Earth was still about 175,000
+
+230
+00:05:47,420 --> 00:05:48,170
+miles away.
+
+231
+00:05:48,720 --> 00:05:49,570
+The engine starts.
+
+232
+00:05:50,120 --> 00:05:51,140
+Lovell keeps the spacecraft
+
+233
+00:05:51,160 --> 00:05:53,180
+lined up. Swigert has the
+
+234
+00:05:53,200 --> 00:05:53,630
+seconds.
+
+235
+00:05:54,420 --> 00:05:55,450
+A few moments later,
+
+236
+00:05:55,980 --> 00:05:56,830
+the engine stops.
+
+237
+00:05:57,540 --> 00:05:59,990
+The firing lasts 14.8 seconds,
+
+238
+00:06:00,480 --> 00:06:01,460
+and NASA says it makes
+
+239
+00:06:01,480 --> 00:06:02,710
+the correction they needed.
+
+240
+00:06:03,740 --> 00:06:04,500
+It is the kind of
+
+241
+00:06:04,520 --> 00:06:05,830
+scene that sounds invented.
+
+242
+00:06:06,760 --> 00:06:07,880
+A spacecraft is trying to
+
+243
+00:06:07,900 --> 00:06:08,890
+return from the Moon,
+
+244
+00:06:09,340 --> 00:06:10,100
+and one of the useful
+
+245
+00:06:10,120 --> 00:06:11,700
+tools is a watch that
+
+246
+00:06:11,720 --> 00:06:12,940
+needs no battery from the
+
+247
+00:06:12,960 --> 00:06:13,280
+ship.
+
+248
+00:06:13,960 --> 00:06:14,800
+But that is why NASA
+
+249
+00:06:14,820 --> 00:06:16,280
+had tested it and sent
+
+250
+00:06:16,300 --> 00:06:17,290
+it in the first place.
+
+251
+00:06:18,620 --> 00:06:19,400
+Houston had worked out the
+
+252
+00:06:19,420 --> 00:06:20,010
+maneuver.
+
+253
+00:06:20,500 --> 00:06:21,360
+The crew still had to
+
+254
+00:06:21,380 --> 00:06:22,500
+do it, in a damaged,
+
+255
+00:06:22,520 --> 00:06:24,900
+freezing spacecraft, without the
+
+256
+00:06:24,920 --> 00:06:25,940
+computer they would normally
+
+257
+00:06:25,960 --> 00:06:27,130
+have used for the timing.
+
+258
+00:06:27,960 --> 00:06:28,800
+This is where a backup
+
+259
+00:06:28,820 --> 00:06:30,090
+stops sounding boring.
+
+260
+00:06:31,040 --> 00:06:32,220
+The story is sometimes condensed
+
+261
+00:06:32,240 --> 00:06:34,100
+into one line: a watch
+
+262
+00:06:34,120 --> 00:06:35,770
+saved Apollo 13.
+
+263
+00:06:36,380 --> 00:06:36,990
+It is catchy.
+
+264
+00:06:37,800 --> 00:06:38,780
+It also misses the people
+
+265
+00:06:38,800 --> 00:06:40,290
+who made the rescue possible.
+
+266
+00:06:41,040 --> 00:06:41,920
+The watch could measure an
+
+267
+00:06:41,940 --> 00:06:43,540
+interval. It could not calculate
+
+268
+00:06:43,560 --> 00:06:45,260
+the course, hold the spacecraft
+
+269
+00:06:45,280 --> 00:06:45,890
+steady
+
+270
+00:06:46,380 --> 00:06:47,530
+or make the engine fire.
+
+271
+00:06:49,460 --> 00:06:50,200
+That was the work of
+
+272
+00:06:50,220 --> 00:06:51,140
+the crew and the teams
+
+273
+00:06:51,160 --> 00:06:51,770
+in Houston.
+
+274
+00:06:52,640 --> 00:06:53,620
+A good backup does not
+
+275
+00:06:53,640 --> 00:06:55,140
+replace them. It gives them
+
+276
+00:06:55,160 --> 00:06:57,080
+one more dependable tool when
+
+277
+00:06:57,100 --> 00:06:58,710
+the normal plan has failed.
+
+278
+00:06:59,600 --> 00:07:00,620
+And the most surprising part
+
+279
+00:07:00,640 --> 00:07:01,800
+is that the watch had
+
+280
+00:07:01,820 --> 00:07:02,910
+been there all along.
+
+281
+00:07:03,480 --> 00:07:04,440
+It did not arrive as
+
+282
+00:07:04,460 --> 00:07:05,230
+a rescue device.
+
+283
+00:07:05,800 --> 00:07:06,660
+It was standard equipment,
+
+284
+00:07:06,680 --> 00:07:09,080
+chosen years before anyone knew
+
+285
+00:07:09,100 --> 00:07:10,340
+what would happen to this
+
+286
+00:07:10,360 --> 00:07:10,730
+crew.
+
+287
+00:07:11,600 --> 00:07:13,320
+Apollo 13 never landed on
+
+288
+00:07:13,340 --> 00:07:13,770
+the Moon.
+
+289
+00:07:14,400 --> 00:07:15,880
+But Lovell, Haise and Swigert
+
+290
+00:07:15,900 --> 00:07:16,570
+came home.
+
+291
+00:07:17,320 --> 00:07:18,900
+NASA later called it a
+
+292
+00:07:18,920 --> 00:07:20,090
+successful failure:
+
+293
+00:07:20,800 --> 00:07:21,710
+the landing failed;
+
+294
+00:07:22,200 --> 00:07:23,470
+the rescue succeeded.
+
+295
+00:07:23,980 --> 00:07:25,540
+The Speedmaster already had its
+
+296
+00:07:25,560 --> 00:07:26,330
+Moon story.
+
+297
+00:07:26,940 --> 00:07:28,160
+Armstrong had left his inside
+
+298
+00:07:28,180 --> 00:07:29,600
+the lander to back up
+
+299
+00:07:29,620 --> 00:07:30,510
+a troublesome timer;
+
+300
+00:07:31,340 --> 00:07:32,280
+Aldrin took his onto the
+
+301
+00:07:32,300 --> 00:07:32,730
+surface.
+
+302
+00:07:33,560 --> 00:07:34,900
+Apollo 13 gave the watch
+
+303
+00:07:34,920 --> 00:07:36,270
+a different kind of moment.
+
+304
+00:07:36,820 --> 00:07:38,620
+Nothing glamorous. Just seconds
+
+305
+00:07:38,640 --> 00:07:39,940
+that mattered when the
+
+306
+00:07:39,960 --> 00:07:41,880
+spacecraft's systems could not
+
+307
+00:07:41,900 --> 00:07:43,130
+do every job.
+
+308
+00:07:43,560 --> 00:07:44,920
+That is why NASA trusted
+
+309
+00:07:44,940 --> 00:07:46,290
+a wristwatch in space.
+
+310
+00:07:47,000 --> 00:07:47,830
+It had been tested.
+
+311
+00:07:48,660 --> 00:07:49,640
+The crew knew how to
+
+312
+00:07:49,660 --> 00:07:51,060
+use it. And it could
+
+313
+00:07:51,080 --> 00:07:52,240
+keep counting when they needed
+
+314
+00:07:52,260 --> 00:07:53,900
+to save the spacecraft's power
+
+315
+00:07:53,920 --> 00:07:55,070
+for the journey home.
+
+316
+00:07:55,620 --> 00:07:56,680
+The most famous watch in
+
+317
+00:07:56,700 --> 00:07:58,140
+space did not have to
+
+318
+00:07:58,160 --> 00:07:58,770
+be a hero.
+
+319
+00:07:59,320 --> 00:08:00,120
+It only had to be
+
+320
+00:08:00,140 --> 00:08:00,490
+ready.
+

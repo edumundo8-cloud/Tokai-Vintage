@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 const NAV_LINKS = [
   { label: 'Collection', href: '#collection' },
   { label: 'Our Story', href: '#our-story' },
+  { label: 'Videos', href: '#videos' },
   { label: 'Shipping', href: '#shipping' },
   { label: 'eBay', href: 'https://www.ebay.com/usr/tokai-vintage', external: true },
 ];
